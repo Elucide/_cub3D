@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 21:21:47 by rbenayou          #+#    #+#             */
-/*   Updated: 2022/10/21 02:39:10 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/03 19:02:43 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,3 @@ t_data	*_garbage(void)
 
 	return (&data);
 }
-
-/*int	main()
-{
-	t_data *data;
-	data = _garbage();
-	data->garbage = NULL;
-	
-
-	free_garbage();
-	return(0);
-}*/
