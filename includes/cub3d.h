@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/03 18:50:55 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/03 19:55:43 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,12 @@
 # include "./garbage.h"
 # include "./get_next_line.h"
 
+typedef struct s_data
+{
+	char	*path;
+	int	fd;
+}			t_data;
 
-
-
+void 	parsing(void);
 
 #endif

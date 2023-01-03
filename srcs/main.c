@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/03 19:00:10 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/03 20:00:29 by rbenayou         ###   ########.fr       */
+/*   Created: 2023/01/03 19:19:13 by rbenayou          #+#    #+#             */
+/*   Updated: 2023/01/03 19:49:03 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	check_path(char *path)
+t_data	*_data(void)
 {
-	//check si path valide
-	return(0);
+	static t_data	data;
+
+	return (&data);
 }
-void 	parsing(void)
+
+int	main(int argc, char **argv)
 {
 	t_data *data;
 
 	data=_data();
-	if (check_path(data->path))
+	if (argc == 2)
 	{
-		data->fd = open(data->path, O_RDONLY);
-		if (data->fd < 0)
-			break;
-		//parse_elements();
-		//parse_map();
-		return;
+		data->path = argv[1];
+		parse();
 	}
-	printf("Error\nInvalid path\n");
-	exit(EXIT_FAILURE);
+	else
+	{
+		printf("Error\nWrong number of arguments\n");
+		return (1);
+	}
 }
