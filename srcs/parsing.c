@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:00:10 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/03 22:36:03 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/03 23:13:35 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,13 @@ int	check_path(char *path)
 		return (0);
 	return(1);
 }
+
+void	parse_elements(void)
+{
+	/*t_data *data;
+
+	data=_data();
+*/ }
 
 void 	parse(void)
 {
