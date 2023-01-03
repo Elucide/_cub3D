@@ -21,6 +21,7 @@ all: $(NAME)
 
 $(NAME): $(MLX) $(OBJS) $(INC) 
 		 @$(MAKE) -C libft
+		 make -C mlx_linux/
 		 @echo "cub3d : libft compiled"
 		 $(CC) -g $(CFLAGS) -o $(NAME) $(OBJS) $(INC) libft/libft.a -Lmlx -Lmlx_linux -lXext -lX11 -lm -lz
 		 @echo "cub3d : compiled"
@@ -41,7 +42,8 @@ libft:
 clean:
 		@$(MAKE) -C libft clean
 		@$(RM) $(OBJS)
-		cd mlx_linux && ./configure clean
+#		./mlx_linux/configure clean
+		make -C mlx_linux/ clean
 		@echo "cub3d : objects has been erased"
 
 fclean:	clean
