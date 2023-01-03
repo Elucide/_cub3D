@@ -27,6 +27,12 @@ typedef struct s_data
 	int	fd;
 	void	*mlx_ptr;
 	void	*mlx_win;
+	char	*no;
+	char	*so;
+	char	*we;
+	char	*ea;
+	char	*f;
+	char	*c;
 }			t_data;
 
 t_data	*_data(void);
