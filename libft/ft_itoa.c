@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:55:03 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/03 18:56:36 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/03 19:19:10 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ char	*ft_itoa(int n)
 	nb_len = number_length(l_n);
 	if (l_n < 0)
 		nb_len += 1;
-	result = malloc(sizeof(char) * (nb_len + 1));
-	if (result == NULL)
-		return (NULL);
+	result = ft_malloc(sizeof(char) * (nb_len + 1));
 	if (l_n < 0)
 	{
 		result[0] = '-';

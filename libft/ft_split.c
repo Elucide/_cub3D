@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:55:06 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/03 18:56:37 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/03 19:14:52 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static char	*word_cpy(char *str, int size)
 {
 	char	*dest;
 
-	dest = malloc(sizeof(char) * size + 1);
+	dest = ft_malloc(sizeof(char) * size + 1);
 	if (dest == NULL)
 		return (NULL);
 	dest[size] = '\0';
@@ -69,9 +69,7 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	size = word_count((char *)s, c);
-	matrix = malloc(sizeof(char *) * (size + 1));
-	if (matrix == NULL)
-		return (NULL);
+	matrix = ft_malloc(sizeof(char *) * (size + 1));
 	while (i < size)
 	{
 		while (*s && ft_is_sep((char *)s, c))
