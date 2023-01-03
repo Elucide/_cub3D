@@ -1,5 +1,6 @@
 SRCS	=	srcs/main.c\
 			srcs/parsing.c\
+			includes/garbage.c\
 
 INC		=	includes/cub3d.h
 
