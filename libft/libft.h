@@ -6,13 +6,14 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:00:57 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/03 19:00:58 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/03 20:09:51 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "../includes/garbage.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>

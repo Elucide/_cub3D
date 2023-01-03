@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:00:10 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/03 20:00:29 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/03 20:04:20 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	check_path(char *path)
 	//check si path valide
 	return(0);
 }
-void 	parsing(void)
+void 	parse(void)
 {
 	t_data *data;
 

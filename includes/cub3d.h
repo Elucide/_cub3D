@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/03 19:55:43 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/03 20:04:15 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ typedef struct s_data
 	int	fd;
 }			t_data;
 
-void 	parsing(void);
+void 	parse(void);
 
 #endif
