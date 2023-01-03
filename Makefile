@@ -1,5 +1,6 @@
 SRCS	=	srcs/main.c\
 			srcs/parsing.c\
+			srcs/hooks.c\
 			includes/garbage.c\
 
 INC		=	includes/cub3d.h
@@ -23,6 +24,7 @@ all: $(NAME)
 $(NAME): $(MLX) $(OBJS) $(INC) 
 #		 make -C mlx_linux/
 		 @$(MAKE) -C libft
+		 @$(MAKE) -C mlx_linux
 		 @echo "cub3d : libft compiled"
 #		 $(CC) -g $(CFLAGS) -o $(NAME) $(OBJS) $(INC) libft/libft.a -Lmlx -I/usr/include -Imlx_linux -lXext -lX11 -lm -lz
 		 $(CC) -g $(CFLAGS) -o $(NAME) $(OBJS) $(INC) libft/libft.a -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
@@ -30,7 +32,7 @@ $(NAME): $(MLX) $(OBJS) $(INC)
 
 $(MLX):
 #		cd mlx_linux && ./configure
-		make -C mlx_linux/
+#		@make -C mlx_linux/
 		@echo "cub3d : minilibx compiled" 
 
 macos:  $(OBJS)

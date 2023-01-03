@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:19:13 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/03 23:17:40 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/03 23:34:25 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int	main(int argc, char **argv)
 	init_mlx_ptr();
 	mlx_hook(data->mlx_win, 17, 0, close_win, 0);
 //	mlx_key_hook(data->mlx_win, close_win);
+	mlx_key_hook (data->mlx_win, key_hook, data->mlx_ptr);
 //	mlx_hook(data->mlx_win, 6, 1L << 8, julia_move, data->mlx_ptr);
 	mlx_loop(data->mlx_ptr);	
 }
