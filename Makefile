@@ -24,11 +24,13 @@ $(NAME): $(MLX) $(OBJS) $(INC)
 #		 make -C mlx_linux/
 		 @$(MAKE) -C libft
 		 @echo "cub3d : libft compiled"
-		 $(CC) -g $(CFLAGS) -o $(NAME) $(OBJS) $(INC) libft/libft.a -Lmlx -Lmlx_linux -lXext -lX11 -lm -lz
+#		 $(CC) -g $(CFLAGS) -o $(NAME) $(OBJS) $(INC) libft/libft.a -Lmlx -I/usr/include -Imlx_linux -lXext -lX11 -lm -lz
+		 $(CC) -g $(CFLAGS) -o $(NAME) $(OBJS) $(INC) libft/libft.a -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 		 @echo "cub3d : compiled"
 
 $(MLX):
-		cd mlx_linux && ./configure
+#		cd mlx_linux && ./configure
+		make -C mlx_linux/
 		@echo "cub3d : minilibx compiled" 
 
 macos:  $(OBJS)
