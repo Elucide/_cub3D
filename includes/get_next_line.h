@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 18:21:16 by rbenayou          #+#    #+#             */
-/*   Updated: 2022/02/24 20:20:30 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/03 19:05:24 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <string.h>
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 15 
+#  define BUFFER_SIZE 16 
 # endif
 
 char	*get_next_line(int fd);
