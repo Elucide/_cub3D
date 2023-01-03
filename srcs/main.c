@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:19:13 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/03 23:12:29 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/03 23:17:40 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 t_data	*_data(void)
 {
 	static t_data	data;
+	static int		init = 0;
+
+	if (!init)
+	{
+		ft_bzero(&data, sizeof(t_data));
+		init = 1;
+	}
 
 	return (&data);
 }
