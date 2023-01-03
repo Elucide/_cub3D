@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/03 19:55:43 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/03 20:08:18 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CUB3D_H
 # include "./garbage.h"
 # include "./get_next_line.h"
+# include "../mlx_linux/mlx.h"
 
 typedef struct s_data
 {
