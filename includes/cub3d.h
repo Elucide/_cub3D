@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/03 22:10:44 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/03 22:40:43 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "./garbage.h"
 # include "./get_next_line.h"
 # include "../mlx_linux/mlx.h"
+# include "../libft/libft.h"
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>

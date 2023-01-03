@@ -20,7 +20,7 @@ MLX_MACOS =  -Lmlx -framework OpenGL -framework AppKit
 all: $(NAME)
 
 $(NAME): $(MLX) $(OBJS) $(INC) 
-		 @$(MAKE) -C mlx_linux/
+#		 make -C mlx_linux/
 		 @$(MAKE) -C libft
 		 @echo "cub3d : libft compiled"
 		 $(CC) -g $(CFLAGS) -o $(NAME) $(OBJS) $(INC) libft/libft.a -Lmlx -Lmlx_linux -lXext -lX11 -lm -lz
