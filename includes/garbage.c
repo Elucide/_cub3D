@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 21:21:47 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/03 20:13:09 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/03 22:48:35 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	free_garbage(void)
 		free(garbage);
 		garbage = tmp;
 	}
-	return (0);
+	return ;
 }
 
 t_garbage_data	*_garbage(void)

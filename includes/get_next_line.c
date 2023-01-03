@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 18:19:53 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/03 19:09:54 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/03 22:50:32 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ char	*ft_read(int fd, char *buff_crumbs)
 	buff = ft_malloc(BUFFER_SIZE + 1);
 	if (buff == NULL)
 		return (NULL);
-	while (ft_strchr(buff_crumbs, '\n') == 0 && i > 0)
+	while (gnl_strchr(buff_crumbs, '\n') == 0 && i > 0)
 	{	
 		i = read(fd, buff, BUFFER_SIZE);
 		if (i < 0)
 			return (NULL);
 		buff[i] = '\0';
-		buff_crumbs = ft_strjoin(buff_crumbs, buff);
+		buff_crumbs = gnl_strjoin(buff_crumbs, buff);
 	}
 	return (buff_crumbs);
 }
@@ -81,7 +81,7 @@ char	*ft_clean(char *buff_crumbs)
 		i++;
 	if (!buff_crumbs[i])
 		return (NULL);
-	buff_temp = ft_malloc(sizeof(char) * strlen(buff_crumbs) - i + 1);
+	buff_temp = ft_malloc(sizeof(char) * gnl_strlen(buff_crumbs) - i + 1);
 	i++;
 	while (buff_crumbs[i])
 	{

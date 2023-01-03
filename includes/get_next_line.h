@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 18:21:16 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/03 19:05:24 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/03 22:45:49 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@ char	*get_next_line(int fd);
 char	*ft_read(int fd, char *buff_crumbs);
 char	*ft_cut(char *buff_crumbs);
 char	*ft_clean(char *buff_crumbs);
-size_t	ft_strlen(const char *s);
-char	*ft_strjoin(char *s1, char *s2);
-int		ft_strchr(char *s, int c);
-char	*ft_substr(char *s, unsigned int start, size_t len);
+size_t	gnl_strlen(const char *s);
+char	*gnl_strjoin(char *s1, char *s2);
+int		gnl_strchr(char *s, int c);
 
 #endif
