@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/03 23:07:51 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/03 23:33:33 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,7 @@ typedef struct s_data
 t_data	*_data(void);
 void 	parse(void);
 int		main(int ac, char **av);
+int		close_win(int param);
+int		key_hook(int keycode, void *param);
 
 #endif
