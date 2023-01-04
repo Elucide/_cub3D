@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:00:10 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/04 21:08:36 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/04 21:35:48 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,28 @@ char	*store_element(char *element, char *s)
 	return(check_element(s));
 }
 
+void	check_digit(char **tab)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while(tab[i])
+	{
+		j = 0;
+		while(tab[i][j])
+		{
+			if (!ft_isdigit(tab[i][j]))
+			{
+				printf("Error\nInvalid declaration\n");
+				free_garbage();
+			}
+			j++;		
+		}
+		i++;
+	}
+}
+
 int	parse_color(char *s)
 {
 	int	coma;
@@ -89,6 +111,7 @@ int	parse_color(char *s)
 	{
 		tmp = ft_split(s, ',');
 		i = 0;
+		check_digit(tmp);
 		while(tmp[i])
 		{
 			if(ft_atoi(tmp[i]) >= 0 && ft_atoi(tmp[i]) <= 255)
@@ -143,6 +166,11 @@ int	check_line(char *tmp)
 		data->ceiling = store_color(data->ceiling, tmp);
 	else if (tmp[0] == '1' || tmp[0] == '0' || tmp[0] == 'N' || tmp[0] == 'S' || tmp[0] == 'E' || tmp[0] == 'W')
 		return(0);
+	else
+	{
+		printf("Error\nInvalid declaration\n");
+		free_garbage();
+	}
 	return(1);
 
 }
