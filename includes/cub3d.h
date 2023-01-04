@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/03 23:33:33 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/04 17:10:51 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ typedef struct s_data
 	char	*so;
 	char	*we;
 	char	*ea;
-	char	*f;
-	char	*c;
+	char	*floor;
+	char	*ceiling;
 }			t_data;
 
 t_data	*_data(void);
