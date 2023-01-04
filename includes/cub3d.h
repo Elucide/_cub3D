@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/04 20:11:33 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/04 20:51:19 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_data
 	int		camera_vector_x;
 	int		camera_vector_y;
 	t_img	img;
+	char	**map;
 }			t_data;
 
 t_data	*_data(void);
