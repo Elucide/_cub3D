@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:00:10 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/04 20:09:52 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/04 20:12:58 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	parse_color(char *s)
 {
 	int	color;
 	
-	//printf("%s\n", s);
+	printf("%s\n", s);
 	color = 1;
 	return (color);
 }
@@ -142,11 +142,11 @@ void 	parse(void)
 		data->fd = open(data->path, O_RDONLY);
 		if (data->fd > 0)
 		{
-			parse_elements();
-			printf("NO =%s\n",data->no);
-			printf("SO =%s\n",data->so);
-			printf("WE =%s\n",data->we);
-			printf("EA =%s\n",data->ea);
+//			parse_elements();
+//			printf("NO =%s\n",data->no);
+///			printf("SO =%s\n",data->so);
+//			printf("WE =%s\n",data->we);
+//			printf("EA =%s\n",data->ea);
 			//parse_map();
 			return;
 		}

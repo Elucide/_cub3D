@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:19:13 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/04 20:10:04 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/04 20:13:47 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ t_data	*_data(void)
 	{
 		ft_bzero(&data, sizeof(t_data));
 		init = 1;
+		data.ceiling = -1;
+		data.floor = -1;
 	}
-	data.ceiling = -1;
-	data.floor = -1;
 	return (&data);
 }
 
@@ -43,8 +43,8 @@ int	close_win(int param)
 	t_data	*data;
 
 	data = _data();
-//	if (data->img.img_ptr)
-//		mlx_destroy_image(data->mlx_ptr, data->img.img_ptr);
+	//	if (data->img.img_ptr)
+	//		mlx_destroy_image(data->mlx_ptr, data->img.img_ptr);
 	if (data->mlx_win)
 		mlx_destroy_window(data->mlx_ptr, data->mlx_win);
 	if (data->mlx_ptr)
@@ -76,10 +76,10 @@ int	main(int argc, char **argv)
 	data->h = 720;
 	init_mlx_ptr();
 	mlx_hook(data->mlx_win, 17, 0, close_win, 0);
-//	mlx_key_hook(data->mlx_win, close_win);
+	//	mlx_key_hook(data->mlx_win, close_win);
 	mlx_key_hook (data->mlx_win, key_hook, data->mlx_ptr);
 	render();
-//	mlx_hook(data->mlx_win, 6, 1L << 8, julia_move, data->mlx_ptr);
+	//	mlx_hook(data->mlx_win, 6, 1L << 8, julia_move, data->mlx_ptr);
 	mlx_loop_hook(data->mlx_ptr, render, data);
 	mlx_loop(data->mlx_ptr);	
 }
