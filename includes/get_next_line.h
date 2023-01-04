@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 18:21:16 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/03 22:45:49 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/04 17:04:04 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include "garbage.h"
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 16 
 # endif
