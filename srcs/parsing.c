@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:00:10 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/03 23:13:35 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/04 17:27:26 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	check_path(char *path)
 
 	i = 0;
 	j = 0;
+	if (!path[i])
+		return(0);
 	while(path[i] && is_space(path[i]))
 		i++;
 	if (!path[i])

@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:19:13 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/03 23:34:25 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/04 17:12:47 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ int	main(int argc, char **argv)
 		printf("Error\nWrong number of arguments\n");
 		return (1);
 	}
+	data->floor = ft_strdup("#f6803");
+	data->ceiling = ft_strdup("#2596be");
 	init_mlx_ptr();
 	mlx_hook(data->mlx_win, 17, 0, close_win, 0);
 //	mlx_key_hook(data->mlx_win, close_win);

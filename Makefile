@@ -1,6 +1,8 @@
 SRCS	=	srcs/main.c\
 			srcs/parsing.c\
 			srcs/hooks.c\
+			srcs/rendering.c\
+			srcs/utils.c\
 			includes/garbage.c\
 
 INC		=	includes/cub3d.h
