@@ -6,15 +6,15 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:14:28 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/04 17:36:01 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/04 18:00:56 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	rgb(char *rgb)
+int	rgb_convert(int r, int g, int b)
 {
-	return (rgb[0] << 16) | (rgb[1] << 8) | rgb[2];
+	return (r << 16) | (g << 8) | b;
 }
 
 void	img_pixel_put(int x, int y, int color)
@@ -23,7 +23,7 @@ void	img_pixel_put(int x, int y, int color)
 	t_data	*data;
 
 	data = _data();
-	if (x > 0 && x < data->h && y > 0 && y < data->w)
+	if (x > 0 && x < data->w && y > 0 && y < data->h)
 	{
 		pixel = data->img.addr + (y * data->img.len + x * (data->img.bpp / 8));
 		*(unsigned int *)pixel = color;

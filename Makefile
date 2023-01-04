@@ -3,6 +3,7 @@ SRCS	=	srcs/main.c\
 			srcs/hooks.c\
 			srcs/rendering.c\
 			srcs/utils.c\
+			srcs/raycasting_utils.c\
 			includes/garbage.c\
 
 INC		=	includes/cub3d.h

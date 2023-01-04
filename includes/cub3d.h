@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/04 17:36:49 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/04 18:37:28 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,8 @@ void	img_pixel_put(int x, int y, int color);
 int		mlx_push_img(void);
 void	mlx_img_addr(void);
 void	ft_free(void);
+int		rgb_convert(int r, int g, int b);
+int		render(void);
+void	print_line(int dir, int len, int pos);
 
 #endif
