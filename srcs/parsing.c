@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:00:10 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/04 17:27:26 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/04 20:09:52 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ char	*check_element(char *s)
 	while(s[i] && is_space(s[i]))
 	{
 		if (s[i + 1] && is_space(s[i]) && !is_space(s[i + 1]))
-			return(NULL);
+		{
+			printf("Error\nInvalid declaration\n");
+			free_garbage();
+		}
 		i++;
 	}
 	return(tmp);
@@ -61,29 +64,27 @@ char	*store_element(char *element, char *s)
 		free_garbage();
 	}
 	s += 2;
-	s = check_element(s);
-	if (s == NULL)
-	{
-		printf("Error\nInvalid declaration\n");
-		free_garbage();
-	}
-	return (s);
+	return(check_element(s));
 }
 
-char	*store_color(char *element, char *s)
+int	parse_color(char *s)
 {
-	if (element != NULL)
+	int	color;
+	
+	//printf("%s\n", s);
+	color = 1;
+	return (color);
+}
+
+int	store_color(int element, char *s)
+{
+	if (element < 0)
 	{
 		printf("Error\nDouble declaration\n");
 		free_garbage();
 	}
 	s += 1;
 	s = check_element(s);
-	if (s == NULL)
-	{
-		printf("Error\nInvalid declaration\n");
-		free_garbage();
-	}
 	return(parse_color(s));
 }
 
@@ -105,9 +106,9 @@ int	check_line(char *tmp)
 	else if (!ft_strncmp(tmp, "EA", 2) && is_space(tmp[2]))
 		data->ea = store_element(data->ea, tmp);
 	else if (!ft_strncmp(tmp, "F", 1) && is_space(tmp[1]))
-		data->floor = parse_color(data->floor, tmp);
+		data->floor = store_color(data->floor, tmp);
 	else if (!ft_strncmp(tmp, "C", 1) && is_space(tmp[1]))
-		data->floor = parse_color(data->ceiling, tmp);
+		data->floor = store_color(data->ceiling, tmp);
 	else if (tmp[0] == '1' || tmp[0] == '0' || tmp[0] == 'N' || tmp[0] == 'S' || tmp[0] == 'E' || tmp[0] == 'W')
 		return(0);
 	return(1);
