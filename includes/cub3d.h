@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/04 18:37:28 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/04 20:09:11 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ typedef struct s_data
 	char	*ea;
 	int		floor;
 	int		ceiling;
+	float	player_pos_x;
+	float	player_pos_y;
 	t_img	img;
 }			t_data;
 

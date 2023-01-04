@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:01:31 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/04 18:38:13 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/04 20:01:40 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	set_floor_ceiling(void)
 		}
 		x++;
 	}
-	dprintf(2, "setting ceiling and floor\n");
 	return (1);
 }
 

@@ -6,12 +6,11 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 18:29:15 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/04 18:37:53 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/04 19:46:11 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
 
 void	print_line(int dir, int len, int pos)
 {
