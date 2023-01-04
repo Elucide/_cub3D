@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/04 20:51:19 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/04 21:06:51 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_data
 	char	*ea;
 	int		floor;
 	int		ceiling;
+	int		nb_el;
 	float	player_pos_x;
 	float	player_pos_y;
 	int		camera_vector_x;
