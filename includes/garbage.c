@@ -6,11 +6,12 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 21:21:47 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/04 16:15:14 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/06 18:55:25 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "garbage.h"
+#include "cub3d.h"
 
 void	*ft_malloc(size_t size)
 {
@@ -63,7 +64,9 @@ void	free_garbage(void)
 {
 	t_garbage	*garbage;
 	t_garbage	*tmp;
+	t_data		*data;
 
+	data = _data();
 	garbage = _garbage()->garbage;
 	tmp = NULL;
 	while (garbage)
@@ -73,6 +76,8 @@ void	free_garbage(void)
 		free(garbage);
 		garbage = tmp;
 	}
+	if (data->fd != -1)
+		close(data->fd);
 	exit(EXIT_SUCCESS);
 	return ;
 }

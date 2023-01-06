@@ -89,5 +89,6 @@ int		is_space(char c);
 char	*store_element(char *element, char *s);
 int		store_color(int element, char *s);
 int		parse_color(char *s);
+void	parse_map(void);
 
 #endif
