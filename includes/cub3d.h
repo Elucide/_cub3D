@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/06 20:06:17 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 21:56:44 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,7 @@ char	*store_element(char *element, char *s);
 int		store_color(int element, char *s);
 int		parse_color(char *s);
 void	parse_map(void);
+char	**split_map(char const *s, char c);
+void	 ft_print_tab(char **str);
 
 #endif

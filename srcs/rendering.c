@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:01:31 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/06 20:21:08 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 20:26:22 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	init_test_before_parsing(void)
 	data->ray_dir_y = 1;
 //	data->camera_vector_y = 0;
 	data->map = ft_split("1111111111111111 1000000000000001	1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1111111111111111i", ' ');
-	ft_print_tab(data->map);
+	//ft_print_tab(data->map);
 	return (1);
 }
 
@@ -114,7 +114,7 @@ int	raycasting(void)
 				data->map_y += data->step_y;
 				data->side = 1;
 			}
-			dprintf(2, "map_x = %d       map_y = %d\n", data->map_x, data->map_y);
+			//dprintf(2, "map_x = %d       map_y = %d\n", data->map_x, data->map_y);
 			if(data->map[data->map_x][data->map_y] == '1')
 				data->hit = 1;
 		}
@@ -124,7 +124,7 @@ int	raycasting(void)
       else
 		  data->perpWallDist = (data->sideDistY - data->deltaDistY);
 
-		dprintf(2, "data->perpWallDist = %f\n", data->perpWallDist);
+		//dprintf(2, "data->perpWallDist = %f\n", data->perpWallDist);
 		lineHeight = (int)(data->h / data->perpWallDist);
 		color = rgb_convert(45, 80, 122);
 		if (data->side == 1)

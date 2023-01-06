@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 18:29:15 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/06 20:07:13 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 20:24:54 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	print_line(int len, int pos, int color)
 	t_data	*data;
 	
 	data = _data();
-	dprintf(2, "pos is %d		color is %d		len is %d\n", pos, color, len);
+	//dprintf(2, "pos is %d		color is %d		len is %d\n", pos, color, len);
 	i = 0;
 	while (i < len)
 	{
