@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:01:31 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/06 20:21:08 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 20:31:37 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int	raycasting(void)
 				data->map_y += data->step_y;
 				data->side = 1;
 			}
-			dprintf(2, "map_x = %d       map_y = %d\n", data->map_x, data->map_y);
+//			dprintf(2, "map_x = %d       map_y = %d\n", data->map_x, data->map_y);
 			if(data->map[data->map_x][data->map_y] == '1')
 				data->hit = 1;
 		}
@@ -124,7 +124,7 @@ int	raycasting(void)
       else
 		  data->perpWallDist = (data->sideDistY - data->deltaDistY);
 
-		dprintf(2, "data->perpWallDist = %f\n", data->perpWallDist);
+//		dprintf(2, "data->perpWallDist = %f\n", data->perpWallDist);
 		lineHeight = (int)(data->h / data->perpWallDist);
 		color = rgb_convert(45, 80, 122);
 		if (data->side == 1)
@@ -141,7 +141,8 @@ int	render(void)
 	t_data	*data;
 
 	data = _data();
-	init_test_before_parsing();
+	ft_print_tab(data->map);
+//	init_test_before_parsing();
 	if (data->img.img_ptr)
 		mlx_destroy_image(data->mlx_ptr, data->img.img_ptr);
 	data->img.img_ptr = mlx_new_image(data->mlx_ptr, data->w, data->h);
