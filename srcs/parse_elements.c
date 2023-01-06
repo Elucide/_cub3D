@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:30:48 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/06 18:47:55 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/06 19:56:54 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,9 +122,6 @@ int	check_line(char *tmp)
 		data->floor = store_color(data->floor, tmp);
 	else if (!ft_strncmp(tmp, "C", 1) && is_space(tmp[1]))
 		data->ceiling = store_color(data->ceiling, tmp);
-	else if (tmp[0] == '1' || tmp[0] == '0' || tmp[0] == 'N'
-		|| tmp[0] == 'S' || tmp[0] == 'E' || tmp[0] == 'W')
-		return (0);
 	else
 	{
 		printf("Error\nInvalid declaration\n");
@@ -148,10 +145,11 @@ void	parse_elements(void)
 			printf("Error\nNo map in file\n");
 			free_garbage();
 		}
+		if (data->nb_el == 6)
+			break ;
 		if (!check_line(tmp))
 			break ;
 	}
-	close(data->fd);
 	if (data->nb_el != 6)
 	{
 		printf("Error\nToo few elements\n%d\n",data->nb_el);

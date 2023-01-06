@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:36:00 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/06 18:48:39 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/06 19:03:06 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,3 @@ int	store_color(int element, char *s)
 	data->nb_el++;
 	return (parse_color(s));
 }
-

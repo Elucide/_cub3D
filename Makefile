@@ -1,6 +1,7 @@
 SRCS	=	srcs/main.c\
 			srcs/parsing.c\
 			srcs/parse_elements.c\
+			srcs/parse_map.c\
 			srcs/store_elements.c\
 			srcs/hooks.c\
 			srcs/rendering.c\

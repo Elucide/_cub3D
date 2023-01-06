@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:01:31 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/06 18:49:35 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 19:14:00 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,9 @@ int	raycasting(void)
 		data->camera_x = 2 * (float)data->w - 1;
 		data->ray_dir_x = data->dir_x + data->plane_x * data->camera_x;
 		data->ray_dir_y = data->dir_y + data->plane_y * data->camera_x;
+
+//		data->map_x = (int)da
+
 		x++;
 	}
 	return (1);
@@ -76,7 +79,7 @@ int	render(void)
 	data->img.img_ptr = mlx_new_image(data->mlx_ptr, data->w, data->h);
 	if (!data->img.img_ptr)
 		return (-1);
-	mlx_img_addr();
+	data->img.addr = mlx_get_data_addr(data->img.img_ptr, &data->img.bpp, &data->img.len, &data->img.endian);
 	set_floor_ceiling();
 	mlx_push_img();
 	return (0);

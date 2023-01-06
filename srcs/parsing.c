@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:00:10 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/06 18:31:02 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/06 19:57:29 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	parse(void)
 		if (data->fd > 0)
 		{
 			parse_elements();
-			//parse_map();
+			parse_map();
 			return ;
 		}
 	}
