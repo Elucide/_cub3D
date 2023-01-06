@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:00:26 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/06 21:56:05 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/06 22:07:18 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,8 @@ void	store_map()
 		tmp_join = ft_strjoin(tmp_join, tmp);
 		tmp = get_next_line(data->fd);
 	}
-	/*while (tmp_join[0] && is_space(tmp_join[0]))
-		tmp_join++;
-	*/data->map = split_map(tmp_join, '\n');
+	data->map = split_map(tmp_join, '\n');
+		ft_print_tab(data->map);
 }
 
 int	is_map_char(char c)
@@ -92,7 +91,7 @@ void	parse_map(void)
 		store_map();
 		check_map();
 
-		ft_print_tab(data->map);
+	printf("ok\n");
 		close(data->fd);
 	}
 }

@@ -131,10 +131,6 @@ int	raycasting(void)
 		else
 			data->perpWallDist = (data->sideDistY - data->deltaDistY);
 
-<<<<<<< HEAD
-		//dprintf(2, "data->perpWallDist = %f\n", data->perpWallDist);
-=======
->>>>>>> 37c8c2077d942e5721ea8745b919a0199b3e33ed
 		lineHeight = (int)(data->h / data->perpWallDist);
 		dprintf(2, "line len is %d\n", lineHeight);
 		color = rgb_convert(45, 200, 122);

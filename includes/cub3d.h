@@ -6,11 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/01/06 21:56:44 by rbenayou         ###   ########.fr       */
-=======
-/*   Updated: 2023/01/06 20:36:36 by yschecro         ###   ########.fr       */
->>>>>>> 37c8c2077d942e5721ea8745b919a0199b3e33ed
+/*   Updated: 2023/01/06 22:04:01 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +92,6 @@ int		parse_color(char *s);
 void	parse_map(void);
 char	**split_map(char const *s, char c);
 void	 ft_print_tab(char **str);
+int	init_test_before_parsing(void);
 
 #endif
