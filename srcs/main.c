@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:19:13 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/06 18:58:25 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 20:36:03 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int	main(int argc, char **argv)
 	data->h = 720;
 	data->speed = 0.3;
 	init_mlx_ptr();
+	init_test_before_parsing();
 	render();
 	mlx_hook(data->mlx_win, 17, 0, close_win, 0);
 //	mlx_key_hook(data->mlx_win, close_win);

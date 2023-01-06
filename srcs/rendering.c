@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:01:31 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/06 20:26:22 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/06 21:30:07 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ int	set_floor_ceiling(void)
 int	init_test_before_parsing(void)
 {
 	t_data *data = _data();
-	data->player_pos_x = 4.0;
-	data->player_pos_y = 4.0;
+	data->player_pos_x = 10.0;
+	data->player_pos_y = 10.0;
 	data->ray_dir_x = 1;
-	data->ray_dir_y = 1;
-//	data->camera_vector_y = 0;
-	data->map = ft_split("1111111111111111 1000000000000001	1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1111111111111111i", ' ');
-	//ft_print_tab(data->map);
+	data->ray_dir_y = 0;
+	//	data->camera_vector_y = 0;
+	//	data->map = ft_split("1111111111111111 1000000000000001	1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1111111111111111i", ' ');
+	//	ft_print_tab(data->map);
 	return (1);
 }
 
@@ -70,15 +70,17 @@ int	raycasting(void)
 
 	x = 0;
 	data = _data();
-	while (x < data->w)
+	dprintf(2, "JOUEUR EN POSITION (%f; %F)\n", data->player_pos_x, data->player_pos_y);
+	while (x </* data->w*/ 5)
 	{
 		data->camera_x = 2 * (float)data->w - 1;
 		data->ray_dir_x = data->dir_x + data->plane_x * data->camera_x;
 		data->ray_dir_y = data->dir_y + data->plane_y * data->camera_x;
 		data->map_x = (int)data->player_pos_x;
 		data->map_y = (int)data->player_pos_y;
-		data->deltaDistX = (data->ray_dir_x == 0) ? 1e30 : fabs(1 / data->ray_dir_x);
-		data->deltaDistY = (data->ray_dir_y == 0) ? 1e30 : fabs(1 / data->ray_dir_y);
+//		data->deltaDistX = (data->ray_dir_x == 0) ? 1e30 : fabs(1 / data->ray_dir_x);
+//		data->deltaDistY = (data->ray_dir_y == 0) ? 1e30 : fabs(1 / data->ray_dir_y);
+
 		if(data->ray_dir_x < 0)
 		{
 			data->step_x = -1;
@@ -99,7 +101,6 @@ int	raycasting(void)
 			data->step_y = 1;
 			data->sideDistY = (data->map_y + 1.0 - data->player_pos_y) * data->deltaDistY;
 		}
-
 		while (!data->hit)
 		{
 			if(data->sideDistX < data->sideDistY)
@@ -116,20 +117,30 @@ int	raycasting(void)
 			}
 			//dprintf(2, "map_x = %d       map_y = %d\n", data->map_x, data->map_y);
 			if(data->map[data->map_x][data->map_y] == '1')
+			{
+				dprintf(2, "hit!\n");
 				data->hit = 1;
+			}
+			else
+				dprintf(2, "missed\n");
 		}
 
-      if (data->side == 0)
-		  data->perpWallDist = (data->sideDistX - data->deltaDistX);
-      else
-		  data->perpWallDist = (data->sideDistY - data->deltaDistY);
+//		dprintf(2, "data->sideDistX = %f,    data->sideDistX = %f\n", data->sideDistX, data->deltaDistX);
+		if (data->side == 0)
+			data->perpWallDist = (data->sideDistX - data->deltaDistX);
+		else
+			data->perpWallDist = (data->sideDistY - data->deltaDistY);
 
+<<<<<<< HEAD
 		//dprintf(2, "data->perpWallDist = %f\n", data->perpWallDist);
+=======
+>>>>>>> 37c8c2077d942e5721ea8745b919a0199b3e33ed
 		lineHeight = (int)(data->h / data->perpWallDist);
-		color = rgb_convert(45, 80, 122);
+		dprintf(2, "line len is %d\n", lineHeight);
+		color = rgb_convert(45, 200, 122);
 		if (data->side == 1)
 			color = color / 2;
-//		color = 0;
+		//		color = 0;
 		print_line(lineHeight, x, color);
 		x++;
 	}
@@ -141,7 +152,7 @@ int	render(void)
 	t_data	*data;
 
 	data = _data();
-	init_test_before_parsing();
+	//	ft_print_tab(data->map);
 	if (data->img.img_ptr)
 		mlx_destroy_image(data->mlx_ptr, data->img.img_ptr);
 	data->img.img_ptr = mlx_new_image(data->mlx_ptr, data->w, data->h);
