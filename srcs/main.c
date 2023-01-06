@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:19:13 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/06 17:25:28 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:32:27 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int	main(int argc, char **argv)
 	data->ceiling = rgb_convert(21, 76, 121);
 	data->w = 1080;
 	data->h = 720;
+	data->speed = 0.3;
 	init_mlx_ptr();
 	render();
 	mlx_hook(data->mlx_win, 17, 0, close_win, 0);

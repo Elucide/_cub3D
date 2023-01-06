@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/04 21:06:51 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/06 18:41:47 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,13 @@ typedef struct s_data
 	int		nb_el;
 	float	player_pos_x;
 	float	player_pos_y;
-	int		camera_vector_x;
-	int		camera_vector_y;
+	float	ray_dir_x;
+	float	ray_dir_y;
+	float	speed;
+	float	camera_x;
+	float	camera_y;
+	float	plane_x;
+	float	plane_y;
 	t_img	img;
 	char	**map;
 }			t_data;
