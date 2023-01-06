@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/06 18:41:47 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 18:48:34 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,11 @@ typedef struct s_data
 	float	ray_dir_y;
 	float	speed;
 	float	camera_x;
-	float	camera_y;
+//	float	camera_y;
 	float	plane_x;
 	float	plane_y;
+	float	dir_x;
+	float	dir_y;
 	t_img	img;
 	char	**map;
 }			t_data;
@@ -69,5 +71,11 @@ void	ft_free(void);
 int		rgb_convert(int r, int g, int b);
 int		render(void);
 void	print_line(int pos);
+char	*check_element(char *s);
+void	parse_elements(void);
+int		is_space(char c);
+char	*store_element(char *element, char *s);
+int		store_color(int element, char *s);
+int		parse_color(char *s);
 
 #endif

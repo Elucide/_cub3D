@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:01:31 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/06 18:39:04 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 18:49:35 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	init_test_before_parsing(void)
 	data->player_pos_y = 4.0;
 	data->ray_dir_x = 1;
 	data->ray_dir_y = 1;
-	data->camera_vector_y = 0;
+//	data->camera_vector_y = 0;
 	data->map = ft_split("1111111111111111 1000000000000001	1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1111111111111111i", ' ');
 	return (1);
 }
@@ -52,10 +52,19 @@ int	init_test_before_parsing(void)
 int	raycasting(void)
 {
 	t_data	*data;
+	int		x;
 
+	x = 0;
 	data = _data();
-	data->camera_x = 2 * (float)data->w - 1;
-	data->camera_vector_x = data->
+	while (x < data->w)
+	{
+		data->camera_x = 2 * (float)data->w - 1;
+		data->ray_dir_x = data->dir_x + data->plane_x * data->camera_x;
+		data->ray_dir_y = data->dir_y + data->plane_y * data->camera_x;
+		x++;
+	}
+	return (1);
+}
 
 int	render(void)
 {
