@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/06 18:48:34 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 18:55:36 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ typedef struct s_data
 	float	plane_y;
 	float	dir_x;
 	float	dir_y;
+	int		map_x;
+	int		map_y;
 	t_img	img;
 	char	**map;
 }			t_data;

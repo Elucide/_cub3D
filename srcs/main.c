@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:19:13 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/06 18:52:25 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 18:58:25 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_data	*_data(void)
 	if (!init)
 	{
 		ft_bzero(&data, sizeof(t_data));
+		ft_bzero(&data.img, sizeof(t_img));
 		init = 1;
 		data.ceiling = -1;
 		data.floor = -1;
