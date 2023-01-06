@@ -63,6 +63,6 @@ void	mlx_img_addr(void);
 void	ft_free(void);
 int		rgb_convert(int r, int g, int b);
 int		render(void);
-void	print_line(int dir, int len, int pos);
+void	print_line(int pos);
 
 #endif

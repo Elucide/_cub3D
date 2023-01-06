@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:01:31 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/04 20:51:38 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:19:44 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ int	render(void)
 	data->img.img_ptr = mlx_new_image(data->mlx_ptr, data->w, data->h);
 	if (!data->img.img_ptr)
 		return (-1);
+	dprintf(2, "img is %p\n", data->img.img_ptr);
+	dprintf(2, "bpp is %p\nlen is %p\nendian is %p\n", &data->img.bpp, &data->img.len, &data->img.endian);
 	mlx_img_addr();
 	set_floor_ceiling();
-	print_line(0, 100, 360);
-	print_line(0, 400, 400);
 	mlx_push_img();
 	return (0);
 }
