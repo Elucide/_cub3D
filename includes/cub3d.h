@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/06 18:48:34 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 19:44:33 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ int		is_space(char c);
 char	*store_element(char *element, char *s);
 int		store_color(int element, char *s);
 int		parse_color(char *s);
+void	parse_map(void);
 
 #endif
