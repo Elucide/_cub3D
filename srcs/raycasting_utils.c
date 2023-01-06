@@ -6,32 +6,19 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 18:29:15 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/04 21:40:18 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/06 20:07:13 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	get_len(int pos)
-{
-	return (pos);
-}
-
-int	get_color(int pos)
-{
-	return (pos);
-}
-
-void	print_line(int pos)
+void	print_line(int len, int pos, int color)
 {
 	int	i;
-	int	len;
-	int	color;
 	t_data	*data;
 	
 	data = _data();
-	len = get_len(pos);
-	color = get_color(pos);
+	dprintf(2, "pos is %d		color is %d		len is %d\n", pos, color, len);
 	i = 0;
 	while (i < len)
 	{
