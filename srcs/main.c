@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:19:13 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/11 18:58:32 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/11 21:34:34 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	init_mlx_ptr(void)
 	_data()->mlx_ptr = mlx_init();
 	if (!_data()->mlx_ptr)
 		return (0);
-	_data()->mlx_win = mlx_new_window(_data()->mlx_ptr, 1080, 720, "cub3d");
+	_data()->mlx_win = mlx_new_window(_data()->mlx_ptr, 1080, 720, "cub3D");
 	if (!_data()->mlx_win)
 		return (free(_data()->mlx_ptr), 0);
 	return (1);
