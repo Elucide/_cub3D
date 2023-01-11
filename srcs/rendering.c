@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:01:31 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/06 21:30:07 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/11 18:29:53 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,14 @@ int	init_test_before_parsing(void)
 	//	ft_print_tab(data->map);
 	return (1);
 }
+/*
+void	set_zero_data(void)
+{
+	t_data	*data;
 
+	data = _data();
+	data->
+*/
 int	raycasting(void)
 {
 	t_data	*data;
@@ -70,17 +77,21 @@ int	raycasting(void)
 
 	x = 0;
 	data = _data();
-	dprintf(2, "JOUEUR EN POSITION (%f; %F)\n", data->player_pos_x, data->player_pos_y);
-	while (x </* data->w*/ 5)
+	dprintf(2, "JOUEUR EN POSITION (%f; %f)\n", data->player_pos_x, data->player_pos_y);
+	while (x < data->w)
 	{
-		data->camera_x = 2 * (float)data->w - 1;
+		data->camera_x = 2 * x / (float)data->w - 1;
 		data->ray_dir_x = data->dir_x + data->plane_x * data->camera_x;
 		data->ray_dir_y = data->dir_y + data->plane_y * data->camera_x;
 		data->map_x = (int)data->player_pos_x;
 		data->map_y = (int)data->player_pos_y;
-//		data->deltaDistX = (data->ray_dir_x == 0) ? 1e30 : fabs(1 / data->ray_dir_x);
-//		data->deltaDistY = (data->ray_dir_y == 0) ? 1e30 : fabs(1 / data->ray_dir_y);
-
+		data->deltaDistX = (data->ray_dir_x == 0) ? 1e30 : fabs(1 / data->ray_dir_x);
+		data->deltaDistY = (data->ray_dir_y == 0) ? 1e30 : fabs(1 / data->ray_dir_y);
+		
+//		data->deltaDistX = fabs(1 / data->ray_dir_x);
+//		data->deltaDistY = fabs(1 / data->ray_dir_y);
+		data->hit = 0;
+		dprintf(2, "data->DelatDistX = %f,    data->DeltaDistY = %f\n", data->deltaDistX, data->deltaDistY);
 		if(data->ray_dir_x < 0)
 		{
 			data->step_x = -1;
@@ -93,7 +104,7 @@ int	raycasting(void)
 		}
 		if(data->ray_dir_y < 0)
 		{
-			data->step_x = -1;
+			data->step_y = -1;
 			data->sideDistY = (data->player_pos_y - data->map_y) * data->deltaDistY;
 		}
 		else
@@ -101,6 +112,7 @@ int	raycasting(void)
 			data->step_y = 1;
 			data->sideDistY = (data->map_y + 1.0 - data->player_pos_y) * data->deltaDistY;
 		}
+		dprintf(2, "data->sideDistX = %f,    data->sideDistY = %f\n", data->sideDistX, data->deltaDistY);
 		while (!data->hit)
 		{
 			if(data->sideDistX < data->sideDistY)
@@ -115,27 +127,26 @@ int	raycasting(void)
 				data->map_y += data->step_y;
 				data->side = 1;
 			}
-			dprintf(2, "map_x = %d       map_y = %d\n", data->map_x, data->map_y);
-			if(data->map[data->map_x][data->map_y] == '1')
+//			dprintf(2, "map_x = %d       map_y = %d\n", data->map_x, data->map_y);
+			if (data->map[data->map_x][data->map_y] != '0')
 			{
-				dprintf(2, "hit!\n");
+				dprintf(2, "hit at (%d;%d)!\n", data->map_x, data->map_y);
 				data->hit = 1;
 			}
 			else
 				dprintf(2, "missed\n");
 		}
 
-//		dprintf(2, "data->sideDistX = %f,    data->sideDistX = %f\n", data->sideDistX, data->deltaDistX);
 		if (data->side == 0)
 			data->perpWallDist = (data->sideDistX - data->deltaDistX);
 		else
 			data->perpWallDist = (data->sideDistY - data->deltaDistY);
 
 		lineHeight = (int)(data->h / data->perpWallDist);
-		dprintf(2, "line len is %d\n", lineHeight);
+		dprintf(2, "line len is %d, perpWallDist is %f\n", lineHeight, data->perpWallDist);
 		color = rgb_convert(45, 200, 122);
 		if (data->side == 1)
-			color = color / 2;
+			color /= 2;
 		//		color = 0;
 		print_line(lineHeight, x, color);
 		x++;
@@ -148,7 +159,6 @@ int	render(void)
 	t_data	*data;
 
 	data = _data();
-	//	ft_print_tab(data->map);
 	if (data->img.img_ptr)
 		mlx_destroy_image(data->mlx_ptr, data->img.img_ptr);
 	data->img.img_ptr = mlx_new_image(data->mlx_ptr, data->w, data->h);

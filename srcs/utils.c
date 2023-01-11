@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:14:28 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/06 20:03:48 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/11 18:18:06 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void	img_pixel_put(int x, int y, int color)
 	t_data	*data;
 
 	data = _data();
-//	dprintf(1, "color is %d\n", color);
-//	color = 0;
 	if (x > 0 && x < data->w && y > 0 && y < data->h)
 	{
 		pixel = data->img.addr + (y * data->img.len + x * (data->img.bpp / 8));
