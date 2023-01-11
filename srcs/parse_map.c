@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:00:26 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/11 19:54:39 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/11 19:59:18 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,9 @@ void	init_player(char pos, int x, int y)
 	(void)x;
 	(void)y;
 	(void)pos;
+	t_data	*data;
+
+	data = _data();
 }
 
 void	check_player(void)
