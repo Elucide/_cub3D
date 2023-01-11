@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:00:26 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/11 19:41:39 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/11 19:54:39 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,52 @@ void	is_map_closed(void)
 	}
 }
 
+void	init_player(char pos, int x, int y)
+{
+	(void)x;
+	(void)y;
+	(void)pos;
+}
+
+void	check_player(void)
+{
+	int	i;
+	int	j;
+	t_data	*data;
+
+	data = _data();
+	i = 0;
+	j = 0;
+	while(data->map[i])
+	{
+		j = 0;
+		while(data->map[i][j])
+		{
+			if (data->map[i][j] == 'N' || data->map[i][j] == 'S'
+					|| data->map[i][j] == 'E' || data->map[i][j] == 'W')
+			{
+				if (data->dir_x == 0  && data->dir_y == 0)
+				{
+					init_player(data->map[i][j], i, j);
+					data->map[i][j] = '0';
+				}
+				else
+				{
+					printf("Error\nOnly one player needed\n");
+					free_garbage();
+				}
+			}
+			j++;
+		}
+		i++;
+	}
+	if (data->dir_x == 0  && data->dir_y == 0)
+	{
+		printf("Error\nNo player declaration\n");
+		free_garbage();
+	}
+}
+
 void	parse_map(void)
 {
 	t_data	*data;
@@ -148,6 +194,7 @@ void	parse_map(void)
 	{
 		store_map();
 		check_map();
+		//check_player();
 		is_map_closed();
 
 		close(data->fd);
