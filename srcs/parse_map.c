@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:00:26 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/11 19:13:18 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/11 19:41:39 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,14 @@ void	store_map()
 	{
 		i = 0;
 		tmp = get_next_line(data->fd);
+		if (tmp == NULL)
+		{
+			printf("Error\nNo map in file\n");
+			free_garbage();
+		}
 		while (tmp[i] && is_space(tmp[i]))
 			i++;
-		if (!tmp[i])
+		if (tmp[i])
 			break;
 	}
 	while(tmp != NULL)
@@ -109,23 +114,23 @@ void	is_map_closed(void)
 		{
 			if (data->map[i][j] == '0')
 			{
-					if (i != 0 && j != 0 && j != ft_strlen(data->map[i])
+				if (i != 0 && j != 0 && j != ft_strlen(data->map[i])
 						&& i != max_map())
-					{
+				{
 					if (j+1 == ft_strlen(data->map[i]) || j >= ft_strlen(data->map[i - 1]) 
-						|| j >= ft_strlen(data->map[i + 1]) || data->map[i - 1][j] == ' '
-						|| data->map[i + 1][j] == ' ' || data->map[i][j - 1] == ' '
-						|| data->map[i][j + 1] == ' ')
-						{	
-							printf("Error\nMap not closed\n");
-							free_garbage();t 
-						}
-					}
-					else
+							|| j >= ft_strlen(data->map[i + 1]) || data->map[i - 1][j] == ' '
+							|| data->map[i + 1][j] == ' ' || data->map[i][j - 1] == ' '
+							|| data->map[i][j + 1] == ' ')
 					{	
 						printf("Error\nMap not closed\n");
-						free_garbage();
+						free_garbage(); 
 					}
+				}
+				else
+				{	
+					printf("Error\nMap not closed\n");
+					free_garbage();
+				}
 
 			}
 			j++;

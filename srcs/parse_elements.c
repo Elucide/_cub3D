@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:30:48 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/06 19:56:54 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/11 19:38:01 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,14 +139,14 @@ void	parse_elements(void)
 	data->nb_el = 0;
 	while (1)
 	{
+		if (data->nb_el == 6)
+			break ;
 		tmp = get_next_line(data->fd);
 		if (tmp == NULL)
 		{
 			printf("Error\nNo map in file\n");
 			free_garbage();
 		}
-		if (data->nb_el == 6)
-			break ;
 		if (!check_line(tmp))
 			break ;
 	}
