@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:30:49 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/11 18:05:21 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/11 18:59:16 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,14 @@ int	key_hook(int keycode, void *param)
 		data->dir_y = oldDirX * sin(data->rotSpeed) + data->dir_y * cos(data->rotSpeed);
 		data->plane_x = data->plane_x * cos(data->rotSpeed) - data->plane_y * sin(data->rotSpeed);
 		data->plane_x = oldPlaneX * sin(data->rotSpeed) + data->plane_y * cos(data->rotSpeed);
+		render();
+	}
+	if (keycode == 65361)
+	{
+		data->dir_x = data->dir_x * cos(data->rotSpeed) - data->dir_y * sin(data->rotSpeed);
+		data->dir_y = oldDirX * sin(data->rotSpeed) + data->dir_y * cos(data->rotSpeed);
+		data->plane_x = data->plane_x * cos(-data->rotSpeed) - data->plane_y * sin(data->rotSpeed);
+		data->plane_x = oldPlaneX * sin(-data->rotSpeed) + data->plane_y * cos(data->rotSpeed);
 		render();
 	}
 

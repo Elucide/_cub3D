@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:01:31 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/11 18:29:53 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/11 18:49:15 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int	raycasting(void)
 	while (x < data->w)
 	{
 		data->camera_x = 2 * x / (float)data->w - 1;
+//		dprintf(2, "camera_x is %f\n", data->camera_x);
 		data->ray_dir_x = data->dir_x + data->plane_x * data->camera_x;
 		data->ray_dir_y = data->dir_y + data->plane_y * data->camera_x;
 		data->map_x = (int)data->player_pos_x;
@@ -91,7 +92,7 @@ int	raycasting(void)
 //		data->deltaDistX = fabs(1 / data->ray_dir_x);
 //		data->deltaDistY = fabs(1 / data->ray_dir_y);
 		data->hit = 0;
-		dprintf(2, "data->DelatDistX = %f,    data->DeltaDistY = %f\n", data->deltaDistX, data->deltaDistY);
+//		dprintf(2, "data->DelatDistX = %f,    data->DeltaDistY = %f\n", data->deltaDistX, data->deltaDistY);
 		if(data->ray_dir_x < 0)
 		{
 			data->step_x = -1;
@@ -112,7 +113,7 @@ int	raycasting(void)
 			data->step_y = 1;
 			data->sideDistY = (data->map_y + 1.0 - data->player_pos_y) * data->deltaDistY;
 		}
-		dprintf(2, "data->sideDistX = %f,    data->sideDistY = %f\n", data->sideDistX, data->deltaDistY);
+//		dprintf(2, "data->sideDistX = %f,    data->sideDistY = %f\n", data->sideDistX, data->deltaDistY);
 		while (!data->hit)
 		{
 			if(data->sideDistX < data->sideDistY)
@@ -128,13 +129,13 @@ int	raycasting(void)
 				data->side = 1;
 			}
 //			dprintf(2, "map_x = %d       map_y = %d\n", data->map_x, data->map_y);
-			if (data->map[data->map_x][data->map_y] != '0')
+			if (data->map[data->map_x][data->map_y] == '1')
 			{
-				dprintf(2, "hit at (%d;%d)!\n", data->map_x, data->map_y);
+//				dprintf(2, "hit at (%d;%d)!\n", data->map_x, data->map_y);
 				data->hit = 1;
 			}
-			else
-				dprintf(2, "missed\n");
+//			else
+//				dprintf(2, "missed\n");
 		}
 
 		if (data->side == 0)
@@ -143,7 +144,7 @@ int	raycasting(void)
 			data->perpWallDist = (data->sideDistY - data->deltaDistY);
 
 		lineHeight = (int)(data->h / data->perpWallDist);
-		dprintf(2, "line len is %d, perpWallDist is %f\n", lineHeight, data->perpWallDist);
+//		dprintf(2, "line len is %d, perpWallDist is %f\n", lineHeight, data->perpWallDist);
 		color = rgb_convert(45, 200, 122);
 		if (data->side == 1)
 			color /= 2;

@@ -6,26 +6,11 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:00:26 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/06 20:18:43 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/06 22:10:25 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-/*int		is_map(char *s)
-  {
-  int	i;
-
-  i = 0;
-  while(s[i])
-  {
-  if(is_space(s[i]))
-  i++;	
-  else if (s[i] == '1' || s[i] == '0' || s[i] == 'N'|| s[i] == 'S' || s[i] == 'E' || s[i] == 'W')
-  return(1);
-  }
-  return (0);
-  }*/
 
 void	store_map()
 {
@@ -42,7 +27,7 @@ void	store_map()
 		tmp = get_next_line(data->fd);
 		while (tmp[i] && is_space(tmp[i]))
 			i++;
-		if (tmp[0])
+		if (!tmp[i])
 			break;
 	}
 	while(tmp != NULL)
@@ -50,7 +35,50 @@ void	store_map()
 		tmp_join = ft_strjoin(tmp_join, tmp);
 		tmp = get_next_line(data->fd);
 	}
-	data->map = ft_split(tmp_join, '\n');
+	data->map = split_map(tmp_join, '\n');
+		ft_print_tab(data->map);
+}
+
+int	is_map_char(char c)
+{
+	if (c == '1' || c == '0' || c == 'N' || c == 'S' || c == 'W' || c == 'E'
+			|| is_space(c))
+		return (1);
+	return (0);
+}
+
+void	check_map()
+{
+	int	i;
+	int	j;
+	int	empty;
+	t_data	*data;
+
+	data = _data();
+	i = 0;
+	j = 0;
+	empty = 0;
+	while(data->map[i])
+	{
+		j = 0;
+		while(data->map[i][j])
+		{
+			if (j == 0)
+			{
+				while(is_space(data->map[i][j]))
+					j++;
+				if (!data->map[i][j])
+					empty++;
+			}
+			if (!is_map_char(data->map[i][j]) || (is_map_char(data->map[i][j]) && empty))
+			{
+				printf("Error\nInvalid character in map\n");
+				free_garbage();
+			}
+			j++;
+		}
+		i++;
+	}
 }
 
 void	parse_map(void)
@@ -61,92 +89,8 @@ void	parse_map(void)
 	if (data->fd > 0)
 	{
 		store_map();
-		int	i = 0;
-		int	j;
-		while(data->map[i])
-		{
-			j = 0;
-			while(data->map[i][j])
-			{
-				printf("%c",data->map[i][j]);
-				j++;
-			}
-			printf("\n");
-			i++;
-		}
-		//store map and check it
+		check_map();
+
 		close(data->fd);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*int	check_max(void)
-  {	
-  t_data	*data;
-  char	*tmp;
-  int		max;
-
-  data = _data();
-  max = 0;
-  data->fd = open(data->path, O_RDONLY);
-  if (data->fd > 0)
-  {
-  while(1)
-  {
-  tmp = get_next_line(data->fd);
-  if (tmp[0] == '1' || tmp[0] == '0' || tmp[0] == 'N'
-  || tmp[0] == 'S' || tmp[0] == 'E' || tmp[0] == 'W')
-  break ;
-  }
-  while(tmp != NULL)
-  {
-  if (ft_strlen(tmp) > max)
-  max = ft_strlen(tmp);
-  tmp = get_next_line(data->fd);
-  }
-  close(data->fd);
-  }
-  return(max);
-  }*/
-
-
