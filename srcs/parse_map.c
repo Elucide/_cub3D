@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:00:26 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/11 19:13:18 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/11 19:14:49 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void	is_map_closed(void)
 						|| data->map[i][j + 1] == ' ')
 						{	
 							printf("Error\nMap not closed\n");
-							free_garbage();t 
+							free_garbage();
 						}
 					}
 					else
