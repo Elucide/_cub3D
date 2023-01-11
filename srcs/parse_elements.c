@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:30:48 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/11 19:38:01 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/11 21:36:39 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ char	*check_element(char *s)
 	}
 	return (tmp);
 }
-
 
 void	check_digit(char **tab)
 {
@@ -100,7 +99,6 @@ int	parse_color(char *s)
 	return (1);
 }
 
-
 int	check_line(char *tmp)
 {
 	t_data	*data;
@@ -152,8 +150,7 @@ void	parse_elements(void)
 	}
 	if (data->nb_el != 6)
 	{
-		printf("Error\nToo few elements\n%d\n",data->nb_el);
+		printf("Error\nToo few elements\n");
 		free_garbage();
 	}
 }
-

@@ -6,13 +6,13 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:00:26 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/11 19:59:18 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/11 21:49:52 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	store_map()
+void	store_map(void)
 {
 	t_data	*data;
 	char	*tmp_join;
@@ -21,7 +21,7 @@ void	store_map()
 
 	data = _data();
 	tmp_join = NULL;
-	while(1)
+	while (1)
 	{
 		i = 0;
 		tmp = get_next_line(data->fd);
@@ -33,9 +33,9 @@ void	store_map()
 		while (tmp[i] && is_space(tmp[i]))
 			i++;
 		if (tmp[i])
-			break;
+			break ;
 	}
-	while(tmp != NULL)
+	while (tmp != NULL)
 	{
 		tmp_join = ft_strjoin(tmp_join, tmp);
 		tmp = get_next_line(data->fd);
@@ -46,30 +46,30 @@ void	store_map()
 int	is_map_char(char c)
 {
 	if (c == '1' || c == '0' || c == 'N' || c == 'S' || c == 'W' || c == 'E'
-			|| is_space(c))
+		|| is_space(c))
 		return (1);
 	return (0);
 }
 
-void	check_map()
+void	check_map(void)
 {
-	int	i;
-	int	j;
-	int	empty;
+	int		i;
+	int		j;
+	int		empty;
 	t_data	*data;
 
 	data = _data();
 	i = 0;
 	j = 0;
 	empty = 0;
-	while(data->map[i])
+	while (data->map[i])
 	{
 		j = 0;
-		while(data->map[i][j])
+		while (data->map[i][j])
 		{
 			if (j == 0)
 			{
-				while(is_space(data->map[i][j]))
+				while (is_space(data->map[i][j]))
 					j++;
 				if (!data->map[i][j])
 					empty++;
@@ -144,10 +144,10 @@ void	init_player(char pos, int x, int y)
 	(void)x;
 	(void)y;
 	(void)pos;
-	t_data	*data;
+	/*t_data	*data;
 
 	data = _data();
-}
+*/}
 
 void	check_player(void)
 {
