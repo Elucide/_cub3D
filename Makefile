@@ -24,7 +24,7 @@ OBJS	=	$(SRCS:.c=.o)
 
 RM		=	rm -f
 
-NAME	=	cub3d
+NAME	=	cub3D
 
 MLX_MACOS =  -Lmlx -framework OpenGL -framework AppKit
 
