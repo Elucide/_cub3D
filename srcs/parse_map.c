@@ -25,9 +25,14 @@ void	store_map()
 	{
 		i = 0;
 		tmp = get_next_line(data->fd);
+		if (tmp == NULL)
+		{
+			printf("Error\nNo map in file\n");
+			free_garbage();
+		}
 		while (tmp[i] && is_space(tmp[i]))
 			i++;
-		if (!tmp[i])
+		if (tmp[i])
 			break;
 	}
 	while(tmp != NULL)
@@ -109,28 +114,80 @@ void	is_map_closed(void)
 		{
 			if (data->map[i][j] == '0')
 			{
-					if (i != 0 && j != 0 && j != ft_strlen(data->map[i])
+				if (i != 0 && j != 0 && j != ft_strlen(data->map[i])
 						&& i != max_map())
-					{
+				{
 					if (j+1 == ft_strlen(data->map[i]) || j >= ft_strlen(data->map[i - 1]) 
+<<<<<<< HEAD
 						|| j >= ft_strlen(data->map[i + 1]) || data->map[i - 1][j] == ' '
 						|| data->map[i + 1][j] == ' ' || data->map[i][j - 1] == ' '
 						|| data->map[i][j + 1] == ' ')
-						{	
 							printf("Error\nMap not closed\n");
 							free_garbage();
 						}
 					}
 					else
-					{	
-						printf("Error\nMap not closed\n");
-						free_garbage();
-					}
+=======
+							|| j >= ft_strlen(data->map[i + 1]) || data->map[i - 1][j] == ' '
+							|| data->map[i + 1][j] == ' ' || data->map[i][j - 1] == ' '
+							|| data->map[i][j + 1] == ' ')
+				}
+				else
+				{	
+					printf("Error\nMap not closed\n");
+					free_garbage();
+				}
 
 			}
 			j++;
 		}
 		i++;
+	}
+}
+
+void	init_player(char pos, int x, int y)
+{
+	(void)x;
+	(void)y;
+	(void)pos;
+}
+
+void	check_player(void)
+{
+	int	i;
+	int	j;
+	t_data	*data;
+
+	data = _data();
+	i = 0;
+	j = 0;
+	while(data->map[i])
+	{
+		j = 0;
+		while(data->map[i][j])
+		{
+			if (data->map[i][j] == 'N' || data->map[i][j] == 'S'
+					|| data->map[i][j] == 'E' || data->map[i][j] == 'W')
+			{
+				if (data->dir_x == 0  && data->dir_y == 0)
+				{
+					init_player(data->map[i][j], i, j);
+					data->map[i][j] = '0';
+				}
+				else
+				{
+					printf("Error\nOnly one player needed\n");
+					free_garbage();
+				}
+			}
+			j++;
+		}
+		i++;
+	}
+	if (data->dir_x == 0  && data->dir_y == 0)
+	{
+		printf("Error\nNo player declaration\n");
+		free_garbage();
 	}
 }
 
@@ -143,6 +200,7 @@ void	parse_map(void)
 	{
 		store_map();
 		check_map();
+		//check_player();
 		is_map_closed();
 
 		close(data->fd);
