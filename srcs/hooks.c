@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:30:49 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/12 19:23:03 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/12 19:37:45 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,14 @@ int	key_hook(int keycode, void *param)
 	float oldDirX = data->dir_x;
 	float oldPlaneX = data->plane_x;
 
-	dprintf(2, "keycode is %d\n", keycode);
+//	dprintf(2, "keycode is %d\n", keycode);
 	if (keycode == 65307)
 		close_win(0);
 	if (keycode == 119)
 	{
-//		_data()->player_pos_y += _data()->speed;
-//		if (data->map[(int)data->player_pos_x + data->dir_x * data->speed][(int)data->player_pos_y] == '0')
+		if (data->map[(int)(data->player_pos_x + data->dir_x * data->speed)][(int)(data->player_pos_y)] == '0')
 			data->player_pos_x += data->dir_x * data->speed;
-//		if (data->map[int(posX)][int(posY + dirY * moveSpeed)] == false)
+		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y + data->dir_y * data->speed)] == '0')
 			data->player_pos_y += data->dir_y * data->speed;
 		render();
 	}
@@ -63,8 +62,5 @@ int	key_hook(int keycode, void *param)
 		data->plane_y = oldPlaneX * sin(data->rotSpeed) + data->plane_y * cos(data->rotSpeed);
 		render();
 	}
-
-//	if (keycode == 104)
-//		mlx_png_file_to_image(_data()->mlx_ptr, "./texture/signature.png", &)
 	return ((void) param, 1);
 }
