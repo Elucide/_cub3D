@@ -91,7 +91,9 @@ char	*store_element(char *element, char *s);
 int		store_color(int element, char *s);
 int		parse_color(char *s);
 void	parse_map(void);
-char	**split_map(char const *s, char c);
+char	**split_map(char *s, char c);
 void	 ft_print_tab(char **str);
+int		init_test_before_parsing(void);
+char	*format_split(char *s);
 
 #endif
