@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:30:48 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/12 21:57:58 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/12 23:04:21 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,57 +33,36 @@ char	*check_element(char *s)
 	while (s[i] && is_space(s[i]))
 	{
 		if (s[i + 1] && is_space(s[i]) && !is_space(s[i + 1]))
-		{
-			printf("Error\nInvalid declaration\n");
-			free_garbage();
-		}
+			print_error("Error\nInvalid declaration\n");
 		i++;
 	}
 	return (tmp);
 }
 
-void	check_digit(char **tab)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (tab[i])
-	{
-		j = 0;
-		while (tab[i][j])
-		{
-			if (!ft_isdigit(tab[i][j]))
-			{
-				printf("Error\nInvalid declaration\n");
-				free_garbage();
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
-int	parse_color(char *s)
+int	coma_count(char *s)
 {
 	int		coma;
 	int		i;
-	char	**tmp;
 
-	i = 0;
 	coma = 0;
-	if (!s)
-	{
-		printf("Error\nInvalid declaration\n");
-		free_garbage();
-	}
+	i = 0;
 	while (s[i])
 	{
 		if (s[i] == ',')
 			coma++;
 		i++;
 	}
-	if (coma == 2)
+	return (coma);
+}
+
+int	parse_color(char *s)
+{
+	int		i;
+	char	**tmp;
+
+	if (!s)
+		print_error("Error\nInvalid declaration\n");
+	if (coma_count(s) == 2)
 	{
 		tmp = ft_split(s, ',');
 		i = 0;
@@ -99,8 +78,7 @@ int	parse_color(char *s)
 			return (rgb_convert(ft_atoi(tmp[0]), ft_atoi(tmp[1])
 					, ft_atoi(tmp[2])));
 	}
-	printf("Error\nInvalid declaration\n");
-	free_garbage();
+	print_error("Error\nInvalid declaration\n");
 	return (1);
 }
 
@@ -126,10 +104,7 @@ int	check_line(char *tmp)
 	else if (!ft_strncmp(tmp, "C", 1) && is_space(tmp[1]))
 		data->ceiling = store_color(data->ceiling, tmp);
 	else
-	{
-		printf("Error\nInvalid declaration\n");
-		free_garbage();
-	}
+		print_error("Error\nInvalid declaration\n");
 	return (1);
 }
 
@@ -146,16 +121,10 @@ void	parse_elements(void)
 			break ;
 		tmp = get_next_line(data->fd);
 		if (tmp == NULL)
-		{
-			printf("Error\nNo map in file\n");
-			free_garbage();
-		}
+			print_error("Error\nNo map in file\n");
 		if (!check_line(tmp))
 			break ;
 	}
 	if (data->nb_el != 6)
-	{
-		printf("Error\nToo few elements\n");
-		free_garbage();
-	}
+		print_error("Error\nToo few elements\n");
 }

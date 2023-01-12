@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/12 16:27:20 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/12 23:36:37 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,10 @@ char	**split_map(char *s, char c);
 void	 ft_print_tab(char **str);
 int		init_test_before_parsing(void);
 char	*format_split(char *s);
+void	print_error(char *s);
+void	check_digit(char **tab);
+void	store_map(void);
+void	check_player(void);
+int		max_map(void);
 
 #endif

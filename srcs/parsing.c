@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:00:10 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/12 19:19:26 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/12 22:54:07 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,5 @@ void	parse(void)
 			return ;
 		}
 	}
-	printf("Error\nInvalid path\n");
-	exit(EXIT_FAILURE);
+	print_error("Error\nInvalid path\n");
 }

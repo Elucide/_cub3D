@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 18:25:56 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/12 18:32:52 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/12 23:37:15 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,41 @@ char	*format_split(char *s)
 		else
 			return (s);
 	}
+}
+
+void	print_error(char *s)
+{
+	printf("%s", s);
+	free_garbage();
+}
+
+void	check_digit(char **tab)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (tab[i])
+	{
+		j = 0;
+		while (tab[i][j])
+		{
+			if (!ft_isdigit(tab[i][j]))
+				print_error("Error\nInvalid declaration\n");
+			j++;
+		}
+		i++;
+	}
+}
+
+int	max_map(void)
+{	
+	t_data	*data;
+	int		i;
+
+	data = _data();
+	i = 0;
+	while (data->map[i])
+		i++;
+	return (i - 1);
 }
