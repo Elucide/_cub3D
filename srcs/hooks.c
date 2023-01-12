@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:30:49 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/11 19:55:35 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/12 19:23:03 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	key_hook(int keycode, void *param)
 		_data()->player_pos_x += _data()->speed;
 		render();
 	}
-	if (keycode == 65363)
+	if (keycode == 65361)
 	{
 		data->dir_x = data->dir_x * cos(-data->rotSpeed) - data->dir_y * sin(-data->rotSpeed);
 		data->dir_y = oldDirX * sin(-data->rotSpeed) + data->dir_y * cos(-data->rotSpeed);
@@ -55,7 +55,7 @@ int	key_hook(int keycode, void *param)
 		data->plane_y = oldPlaneX * sin(-data->rotSpeed) + data->plane_y * cos(-data->rotSpeed);
 		render();
 	}
-	if (keycode == 65361)
+	if (keycode == 65363)
 	{
 		data->dir_x = data->dir_x * cos(data->rotSpeed) - data->dir_y * sin(data->rotSpeed);
 		data->dir_y = oldDirX * sin(data->rotSpeed) + data->dir_y * cos(data->rotSpeed);

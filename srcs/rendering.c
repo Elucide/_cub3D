@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:01:31 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/11 21:32:56 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/12 19:22:14 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,26 +48,6 @@ int	set_floor_ceiling(void)
 	return (1);
 }
 
-int	init_test_before_parsing(void)
-{
-//	t_data *data = _data();
-//	data->player_pos_x = 10.0;
-//	data->player_pos_y = 10.0;
-//	data->ray_dir_x = 1;
-//	data->ray_dir_y = 0;
-//	//	data->camera_vector_y = 0;
-//	//	data->map = ft_split("1111111111111111 1000000000000001	1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1000000000000001 1111111111111111i", ' ');
-	//	ft_print_tab(data->map);
-	return (1);
-}
-/*
-void	set_zero_data(void)
-{
-	t_data	*data;
-
-	data = _data();
-	data->
-*/
 int	raycasting(void)
 {
 	t_data	*data;
@@ -144,7 +124,7 @@ int	raycasting(void)
 			data->perpWallDist = (data->sideDistY - data->deltaDistY);
 
 		lineHeight = (int)(data->h / data->perpWallDist);
-//		dprintf(2, "line len is %d, perpWallDist is %f\n", lineHeight, data->perpWallDist);
+		dprintf(2, "line len is %d, perpWallDist is %f\n", lineHeight, data->perpWallDist);
 		color = rgb_convert(45, 200, 122);
 		if (data->side == 1)
 			color /= 2;
