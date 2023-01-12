@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:00:26 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/12 19:28:21 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/12 19:58:08 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,8 +145,8 @@ void	init_player(char pos, int x, int y)
 	t_data	*data;
 
 	data = _data();
-	data->player_pos_x = x;
-	data->player_pos_y = y;
+	data->player_pos_x = x + 0.5;
+	data->player_pos_y = y + 0.5;
 	if (pos == 'E')
 	{
 		data->dir_x = 1;
