@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:55:06 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/06 22:05:36 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/12 18:28:58 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,40 +60,17 @@ static char	*word_cpy(char *str, int size)
 	return (dest);
 }
 
-char	**split_map(char const *s, char c)
+char	**split_map(char *s, char c)
 {
 	char	**matrix;
 	int		i;
 	int		size;
 	int		j;
 
+	i = 0;
+	s = format_split(s);
 	size = word_count((char *)s, c);
 	matrix = ft_malloc(sizeof(char *) * (size + 1));
-	while (1)
-	{
-		i = 0;
-		while (s[i])
-		{
-			//printf("ok%d ='%c'\n", i, s[i]);
-			if (s[i] == '\n')
-				break ;
-			if (is_space(s[i]))
-				i++;
-			else
-				break;
-		}
-		if (s[i] == '\n')
-		{
-			while(i >= 0)
-			{
-				s++;
-				i--;
-			}
-		}
-		else
-			break ;
-	}
-	i = 0;
 	while (i < size)
 	{
 		if (*s && ft_is_sep((char *)s, c))
@@ -105,8 +82,6 @@ char	**split_map(char const *s, char c)
 		}
 		j = ft_letter_count((char *)s, c);
 		matrix[i] = word_cpy((char *)s, j);
-		if (matrix[i] == NULL)
-			return (NULL);
 		s += j;
 		i++;
 	}

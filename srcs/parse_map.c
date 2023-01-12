@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:00:26 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/11 21:49:52 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/12 19:28:21 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,58 +85,59 @@ void	check_map(void)
 	}
 }
 
-int		max_map(void)
+int	max_map(void)
 {	
 	t_data	*data;
 	int		i;
 
 	data = _data();
 	i = 0;
-	while(data->map[i])	
+	while (data->map[i])
 		i++;
 	return (i - 1);
 }
 
-
-void    is_map_closed(void)
+void	is_map_closed(void)
 {
-    int    i;
-    int    j;
-    t_data    *data;
+	int		i;
+	int		j;
+	t_data	*data;
 
-    data = _data();
-    i = 0;
-    j = 0;
-    while(data->map[i])
-    {
-        j = 0;
-        while(data->map[i][j])
-        {
-            if (data->map[i][j] == '0')
-            {
-                if (i != 0 && j != 0 && j != ft_strlen(data->map[i])
-                        && i != max_map())
-                {
-                    if (j+1 == ft_strlen(data->map[i]) || j >= ft_strlen(data->map[i - 1]) 
-                            || j >= ft_strlen(data->map[i + 1]) || data->map[i - 1][j] == ' '
-                            || data->map[i + 1][j] == ' ' || data->map[i][j - 1] == ' '
-                            || data->map[i][j + 1] == ' ')
-                    {    
-                        printf("Error\nMap not closed\n");
-                        free_garbage(); 
-                    }
-                }
-                else
-                {    
-                    printf("Error\nMap not closed\n");
-                    free_garbage();
-                }
-
-            }
-            j++;
-        }
-        i++;
-    }
+	data = _data();
+	i = 0;
+	j = 0;
+	while (data->map[i])
+	{
+		j = 0;
+		while (data->map[i][j])
+		{
+			if (data->map[i][j] == '0')
+			{
+				if (i != 0 && j != 0 && j != ft_strlen(data->map[i])
+					&& i != max_map())
+				{
+					if (j + 1 == ft_strlen(data->map[i])
+						|| j >= ft_strlen(data->map[i - 1])
+						|| j >= ft_strlen(data->map[i + 1])
+						|| data->map[i - 1][j] == ' '
+						|| data->map[i + 1][j] == ' '
+						|| data->map[i][j - 1] == ' '
+						|| data->map[i][j + 1] == ' ')
+					{
+						printf("Error\nMap not closed\n");
+						free_garbage();
+					}
+				}
+				else
+				{
+					printf("Error\nMap not closed\n");
+					free_garbage();
+				}
+			}
+			j++;
+		}
+		i++;
+	}
 }
 
 void	init_player(char pos, int x, int y)
@@ -148,25 +149,21 @@ void	init_player(char pos, int x, int y)
 	data->player_pos_y = y;
 	if (pos == 'E')
 	{
-		dprintf(2, "facing East\n");
 		data->dir_x = 1;
 		data->dir_y = 0;
 	}
 	if (pos == 'W')
 	{
-		dprintf(2, "facing West\n");
 		data->dir_x = -1;
 		data->dir_y = 0;
 	}
 	if (pos == 'N')
 	{
-		dprintf(2, "facing North\n");
 		data->dir_x = 0;
 		data->dir_y = -1;
 	}
 	if (pos == 'S')
 	{
-		dprintf(2, "facing South\n");
 		data->dir_x = 0;
 		data->dir_y = 1;
 	}
@@ -174,22 +171,22 @@ void	init_player(char pos, int x, int y)
 
 void	check_player(void)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	t_data	*data;
 
 	data = _data();
 	i = 0;
 	j = 0;
-	while(data->map[i])
+	while (data->map[i])
 	{
 		j = 0;
-		while(data->map[i][j])
+		while (data->map[i][j])
 		{
 			if (data->map[i][j] == 'N' || data->map[i][j] == 'S'
 					|| data->map[i][j] == 'E' || data->map[i][j] == 'W')
 			{
-				if (data->dir_x == 0  && data->dir_y == 0)
+				if (data->dir_x == 0 && data->dir_y == 0)
 				{
 					init_player(data->map[i][j], i, j);
 					data->map[i][j] = '0';
@@ -204,7 +201,7 @@ void	check_player(void)
 		}
 		i++;
 	}
-	if (data->dir_x == 0  && data->dir_y == 0)
+	if (data->dir_x == 0 && data->dir_y == 0)
 	{
 		printf("Error\nNo player declaration\n");
 		free_garbage();
@@ -222,7 +219,6 @@ void	parse_map(void)
 		check_map();
 		check_player();
 		is_map_closed();
-
 		close(data->fd);
 	}
 }
