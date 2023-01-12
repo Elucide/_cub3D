@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:00:10 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/06 19:57:29 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/12 19:19:26 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,3 @@ void	parse(void)
 	printf("Error\nInvalid path\n");
 	exit(EXIT_FAILURE);
 }
-
-/*printf("NO =%s\n",data->no);
-  printf("SO =%s\n",data->so);
-  printf("WE =%s\n",data->we);
-  printf("EA =%s\n",data->ea);
-  printf("floor =%d\n",data->floor);
-  printf("ceiling =%d\n",data->ceiling);*/
