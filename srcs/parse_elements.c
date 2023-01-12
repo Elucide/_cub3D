@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:30:48 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/12 20:22:27 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/12 21:57:58 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,11 @@ int	parse_color(char *s)
 
 	i = 0;
 	coma = 0;
+	if (!s)
+	{
+		printf("Error\nInvalid declaration\n");
+		free_garbage();
+	}
 	while (s[i])
 	{
 		if (s[i] == ',')

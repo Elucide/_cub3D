@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:36:00 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/12 20:20:12 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/12 22:06:52 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,6 @@ char	*store_element(char *element, char *s)
 		free_garbage();
 	}
 	s += 2;
-	if (!s)
-	{
-		printf("Error\nInvalid declaration\n");
-		free_garbage();
-	}
 	data->nb_el++;
 	return (check_element(s));
 }
@@ -43,11 +38,6 @@ int	store_color(int element, char *s)
 		free_garbage();
 	}
 	s += 1;
-	if (!s)
-	{
-		printf("Error\nInvalid declaration\n");
-		free_garbage();
-	}
 	s = check_element(s);
 	data->nb_el++;
 	return (parse_color(s));
