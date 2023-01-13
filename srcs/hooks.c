@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:30:49 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/12 19:37:45 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/13 01:26:54 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,15 @@ int	key_hook(int keycode, void *param)
 			data->player_pos_x += data->dir_x * data->speed;
 		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y + data->dir_y * data->speed)] == '0')
 			data->player_pos_y += data->dir_y * data->speed;
-		render();
+//		render();
 	}
 	if (keycode == 115)
 	{
-		_data()->player_pos_y -= _data()->speed;
-		render();
+		if (data->map[(int)(data->player_pos_x - data->dir_x * data->speed)][(int)(data->player_pos_y)] == '0')
+			data->player_pos_x -= data->dir_x * data->speed;
+		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y - data->dir_y * data->speed)] == '0')
+			data->player_pos_y -= data->dir_y * data->speed;
+//		render();
 	}
 	if (keycode == 97)
 	{

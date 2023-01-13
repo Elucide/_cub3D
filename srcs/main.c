@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:19:13 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/12 19:23:31 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/13 01:28:24 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	init_mlx_ptr(void)
 	_data()->mlx_ptr = mlx_init();
 	if (!_data()->mlx_ptr)
 		return (0);
-	_data()->mlx_win = mlx_new_window(_data()->mlx_ptr, 1080, 720, "cub3D");
+	_data()->mlx_win = mlx_new_window(_data()->mlx_ptr, _data()->w, _data()->h, "cub3D");
 	if (!_data()->mlx_win)
 		return (free(_data()->mlx_ptr), 0);
 	return (1);
@@ -72,22 +72,21 @@ int	main(int argc, char **argv)
 		printf("Error\nWrong number of arguments\n");
 		return (1);
 	}
-	data->floor = rgb_convert(243, 178, 16);
-	data->ceiling = rgb_convert(21, 76, 121);
-	data->w = 1080;
-	data->h = 720;
-	data->speed = 0.8;
+//	data->floor = rgb_convert(243, 178, 16);
+//	data->ceiling = rgb_convert(21, 76, 121);
+	data->w = 1620;
+	data->h = 1080;
+	data->speed = 0.3;
 	init_mlx_ptr();
-//	data->dir_x = 1;
-//	data->dir_y = 1;
-	data->plane_x = 1;
+	data->plane_x = 2;
 	data->plane_y = 1;
-	data->rotSpeed = 0.3;
+	data->rotSpeed = 0.25;
 	render();
+//	mlx_do_key_autorepeaton(data->mlx_ptr);
 	mlx_hook(data->mlx_win, 17, 0, close_win, 0);
 //	mlx_key_hook(data->mlx_win, close_win);
 	mlx_key_hook (data->mlx_win, key_hook, data->mlx_ptr);
 	//	mlx_hook(data->mlx_win, 6, 1L << 8, julia_move, data->mlx_ptr);
-//	mlx_loop_hook(data->mlx_ptr, render, data);
+	mlx_loop_hook(data->mlx_ptr, render, data);
 	mlx_loop(data->mlx_ptr);	
 }

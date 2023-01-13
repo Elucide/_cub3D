@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:01:31 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/12 19:38:32 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/13 01:17:06 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,11 +111,8 @@ int	raycasting(void)
 //			dprintf(2, "map_x = %d       map_y = %d\n", data->map_x, data->map_y);
 			if (data->map[data->map_x][data->map_y] == '1')
 			{
-//				dprintf(2, "hit at (%d;%d)!\n", data->map_x, data->map_y);
 				data->hit = 1;
 			}
-//			else
-//				dprintf(2, "missed\n");
 		}
 
 		if (data->side == 0)
@@ -123,7 +120,7 @@ int	raycasting(void)
 		else
 			data->perpWallDist = (data->sideDistY - data->deltaDistY);
 
-		lineHeight = (int)(data->h / data->perpWallDist);
+		lineHeight = (int)((data->h / 4) / data->perpWallDist);
 //		dprintf(2, "line len is %d, perpWallDist is %f\n", lineHeight, data->perpWallDist);
 		color = rgb_convert(45, 200, 122);
 		if (data->side == 1)
