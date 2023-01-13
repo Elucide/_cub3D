@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/13 04:56:17 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/13 08:52:54 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_data
 	float	deltaDistY;
 	float	rotSpeed;
 	int		map_x;
+	int		WallX;
 	int		map_y;
 	int		step_x;
 	int		step_y;
