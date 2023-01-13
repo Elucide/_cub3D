@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:19:13 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/13 04:13:13 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/13 05:49:31 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,11 @@ int	main(int argc, char **argv)
 //	data->ceiling = rgb_convert(21, 76, 121);
 	data->w = 1620;
 	data->h = 1080;
-	data->speed = 0.3;
+	data->speed = 0.75;
 	init_mlx_ptr();
-	data->plane_x = 2;
-	data->plane_y = 1;
+	data->plane_x = - data->dir_y;
+	data->plane_y = data->dir_x;
+//	data->plane_y = 1;
 	data->rotSpeed = 0.25;
 	render();
 //	mlx_do_key_autorepeaton(data->mlx_ptr);
