@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:01:31 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/13 05:45:41 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/13 06:02:10 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,9 +110,7 @@ int	raycasting(void)
 			}
 //			dprintf(2, "map_x = %d       map_y = %d\n", data->map_x, data->map_y);
 			if (data->map[data->map_x][data->map_y] == '1')
-			{
 				data->hit = 1;
-			}
 		}
 
 		if (data->side == 0)

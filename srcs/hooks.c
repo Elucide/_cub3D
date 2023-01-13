@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:30:49 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/13 05:38:17 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/13 06:07:34 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ int	key_hook(int keycode, void *param)
 		close_win(0);
 	if (keycode == 119)
 	{
-		if (data->map[(int)(data->player_pos_x + data->dir_x * data->speed)][(int)(data->player_pos_y)] == '0')
+		if (data->map[(int)(data->player_pos_x + data->dir_x * (data->speed * 2))][(int)(data->player_pos_y)] == '0')
 			data->player_pos_x += data->dir_x * data->speed;
-		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y + data->dir_y * data->speed)] == '0')
+		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y + data->dir_y * (data->speed * 2))] == '0')
 			data->player_pos_y += data->dir_y * data->speed;
 		render();
 	}
 	if (keycode == 115)
 	{
-		if (data->map[(int)(data->player_pos_x - data->dir_x * data->speed)][(int)(data->player_pos_y)] == '0')
+		if (data->map[(int)(data->player_pos_x - data->dir_x * (data->speed * 2))][(int)(data->player_pos_y)] == '0')
 			data->player_pos_x -= data->dir_x * data->speed;
-		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y - data->dir_y * data->speed)] == '0')
+		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y - data->dir_y * (data->speed * 2))] == '0')
 			data->player_pos_y -= data->dir_y * data->speed;
 		render();
 	}
@@ -46,9 +46,9 @@ int	key_hook(int keycode, void *param)
 		v_orth_x = -data->dir_y;
 		v_orth_y = data->dir_x;
 		dprintf(2, "dir(%f, %f)    v(%f, %f)\n", data->dir_x, data->dir_y, v_orth_x, v_orth_y);
-		if (data->map[(int)(data->player_pos_x + v_orth_x * data->speed)][(int)(data->player_pos_y)] == '0')
+		if (data->map[(int)(data->player_pos_x + v_orth_x * (data->speed * 2))][(int)(data->player_pos_y)] == '0')
 			data->player_pos_x += v_orth_x * data->speed;
-		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y + v_orth_y * data->speed)] == '0')
+		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y + v_orth_y * (data->speed * 2))] == '0')
 			data->player_pos_y += v_orth_y * data->speed;
 		render();
 	}
@@ -57,9 +57,9 @@ int	key_hook(int keycode, void *param)
 		v_orth_x = data->dir_y;
 		v_orth_y = -data->dir_x;
 		dprintf(2, "dir(%f, %f)    v(%f, %f)\n", data->dir_x, data->dir_y, v_orth_x, v_orth_y);
-		if (data->map[(int)(data->player_pos_x + v_orth_x * data->speed)][(int)(data->player_pos_y)] == '0')
+		if (data->map[(int)(data->player_pos_x + v_orth_x * (data->speed * 2))][(int)(data->player_pos_y)] == '0')
 			data->player_pos_x += v_orth_x * data->speed;
-		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y + v_orth_y * data->speed)] == '0')
+		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y + v_orth_y * (data->speed * 2))] == '0')
 			data->player_pos_y += v_orth_y * data->speed;
 		render();
 	}
