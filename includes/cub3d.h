@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/12 23:36:37 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/13 04:56:17 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ typedef struct s_data
 }			t_data;
 
 t_data	*_data(void);
-void 	parse(void);
+void	parse(void);
 int		main(int ac, char **av);
 int		close_win(int param);
 int		key_hook(int keycode, void *param);
@@ -92,7 +92,7 @@ int		store_color(int element, char *s);
 int		parse_color(char *s);
 void	parse_map(void);
 char	**split_map(char *s, char c);
-void	 ft_print_tab(char **str);
+void	ft_print_tab(char **str);
 int		init_test_before_parsing(void);
 char	*format_split(char *s);
 void	print_error(char *s);
