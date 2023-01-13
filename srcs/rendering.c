@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:01:31 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/13 09:23:50 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:03:52 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	raycasting(void)
 
 	x = 0;
 	data = _data();
-	dprintf(2, "JOUEUR EN POSITION (%f; %f)\n", data->player_pos_x, data->player_pos_y);
+//	dprintf(2, "JOUEUR EN POSITION (%f; %f)\n", data->player_pos_x, data->player_pos_y);
 	while (x < data->w)
 	{
 		data->camera_x = 2 * x / (float)data->w - 1;

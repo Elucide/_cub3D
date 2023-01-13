@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 18:29:15 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/13 11:40:54 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:11:23 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,24 +86,12 @@ int	get_color(int len, int i)
 	else
 		wall_x = data->player_pos_x + data->perpWallDist * data->ray_dir_x;
 	wall_x -= floor(wall_x);
-//	printf ("wall_x = %d\n", wall_x);
 	tex_x = (int)(wall_x * 512);
 	if ((!data->side && data->ray_dir_x > 0) || \
 			(data->side && data->ray_dir_y < 0))
 		tex_x = 512 - tex_x - 1;
-//	if 
-///		tex_x = 512 - tex_x - 1;
-//	dprintf(2, "tex_x = %lu\n", tex_x);
-//	dprintf(2, "tex_x = %d   y = %d\n", tex_x )
-//	tex_x = 512 - tex_x;
+	tex_x = 512 - tex_x;
 	return (get_sprite(which_side())[y][tex_x]);
-}
-
-float	get_interval(/*int len*/)
-{
-//	if (len < 512)
-		return (1);
-//	return (512 / len);
 }
 
 void	print_line(int len, int pos)
@@ -116,6 +104,6 @@ void	print_line(int len, int pos)
 	while (i < len)
 	{
 		img_pixel_put(pos, data->h / 2 - (len / 2) + i, get_color(len, i));
-		i += get_interval(len);
+		i += 1;
 	}
 }
