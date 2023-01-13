@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 07:09:32 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/13 09:06:34 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/13 09:18:01 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,17 @@ int	**parse_sprites(char *pixel)
 	return (tab);
 }
 
-int	**open_sprites(char *path, int size)
+int	**open_sprites(char *path)
 {
 	t_data	*data;
+	int		x;
+	int		y;
 
 	data = _data();
 	data->img.img_ptr = mlx_xpm_file_to_image(data->mlx_ptr, path,
-			&size, &size);
+			&x, &y);
+	if (x != 512 || y != 512)
+		print_error("Error\nWrong sprite size\n");
 	if (!data->img.img_ptr)
 		print_error("Error\nFailed to open sprite\n");
 	data->img.addr = mlx_get_data_addr(data->img.img_ptr, &data->img.bpp, \
@@ -63,10 +67,10 @@ void	store_sprites(void)
 	data->w = 1620;
 	data->h = 1080;
 	init_mlx_ptr();
-	data->no_sprite = open_sprites(data->no, 512);
-	data->so_sprite = open_sprites(data->so, 512);
-	data->we_sprite = open_sprites(data->we, 512);
-	data->ea_sprite = open_sprites(data->ea, 512);
+	data->no_sprite = open_sprites(data->no);
+	data->so_sprite = open_sprites(data->so);
+	data->we_sprite = open_sprites(data->we);
+	data->ea_sprite = open_sprites(data->ea);
 	data->img.img_ptr = NULL;
 }
 	/*int i = 0;
