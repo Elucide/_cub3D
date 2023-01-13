@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:19:13 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/13 06:05:07 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/13 08:57:45 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,7 @@ int	main(int argc, char **argv)
 	}
 //	data->floor = rgb_convert(243, 178, 16);
 //	data->ceiling = rgb_convert(21, 76, 121);
-	data->w = 1620;
-	data->h = 1080;
 	data->speed = 0.50;
-	init_mlx_ptr();
 	data->plane_x = - data->dir_y;
 	data->plane_y = data->dir_x;
 //	data->plane_y = 1;
@@ -87,5 +84,5 @@ int	main(int argc, char **argv)
 	mlx_key_hook (data->mlx_win, key_hook, data->mlx_ptr);
 	//	mlx_hook(data->mlx_win, 6, 1L << 8, julia_move, data->mlx_ptr);
 //	mlx_loop_hook(data->mlx_ptr, render, data);
-	mlx_loop(data->mlx_ptr);	
+	mlx_loop(data->mlx_ptr);
 }

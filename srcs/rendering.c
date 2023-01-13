@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:01:31 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/13 06:02:10 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/13 09:23:50 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ int	raycasting(void)
 		if (data->side == 1)
 			color /= 2;
 		//		color = 0;
-		print_line(lineHeight, x, color);
+		print_line(lineHeight, x);
 		x++;
 	}
 	return (1);

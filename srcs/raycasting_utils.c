@@ -6,12 +6,12 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 18:29:15 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/13 09:08:57 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/13 09:22:41 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
+/*
 void	print_line(int len, int pos, int color)
 {
 	int	i;
@@ -26,7 +26,7 @@ void	print_line(int len, int pos, int color)
 		i++;
 	}
 }
-
+*/
 int	which_side(void)
 {
 	t_data *data;
@@ -65,12 +65,25 @@ float	iterator(int len, int image_height)
 		return (image_height / len);
 }
 
-int	get_color(int len, int i, int x)
+int	**get_sprite(int nb)
+{
+	if (!nb)
+		return (_data()->no_sprite);
+	if (nb == 1)
+		return (_data()->so_sprite);
+	if (nb == 2)
+		return (_data()->we_sprite);
+	return (_data()->ea_sprite);
+}
+
+int	get_color(int len, int i)
 {
 	t_data	*data;
 	int		wall_x;
 	int		tex_x;
+	int		y;
 
+	y = (int)(512 / len * i);
 	data = _data();
 	if (!data->side)
 		wall_x = data->player_pos_y + data->perpWallDist * data->ray_dir_y;
@@ -81,25 +94,21 @@ int	get_color(int len, int i, int x)
 		tex_x = 512 - tex_x - 1;
 	if (data->side && data->ray_dir_y < 0)
 		tex_x = 512 - tex_x - 1;
-	return (data->)
+	return (get_sprite(which_side())[y][tex_x]);
 }
 
 void	print_line(int len, int pos)
 {
 	int		i;
 	int		j;
-	int		side;
-	float	iter;
 	t_data	*data;
 	
 	data = _data();
-	iter = = iterator(len, 512);
-	side = which_side();
 	i = 0;
 	j = 0;
 	while (i < len)
 	{
-		img_pixel_put(pos, data->h / 2 - (len / 2) + i, color);
+		img_pixel_put(pos, data->h / 2 - (len / 2) + i, get_color(len, i));
 		i++;
 	}
 }

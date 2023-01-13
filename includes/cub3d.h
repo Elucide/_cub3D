@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/13 08:52:54 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/13 09:23:23 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ typedef struct s_data
 	char	*so;
 	char	*we;
 	char	*ea;
+	int		**no_sprite;
+	int		**so_sprite;
+	int		**we_sprite;
+	int		**ea_sprite;
 	int		floor;
 	int		ceiling;
 	int		nb_el;
@@ -84,7 +88,8 @@ void	mlx_img_addr(void);
 void	ft_free(void);
 int		rgb_convert(int r, int g, int b);
 int		render(void);
-void	print_line(int len, int pos, int color);
+//void	print_line(int len, int pos, int color);
+void	print_line(int len, int pos);
 char	*check_element(char *s);
 void	parse_elements(void);
 int		is_space(char c);
@@ -101,5 +106,7 @@ void	check_digit(char **tab);
 void	store_map(void);
 void	check_player(void);
 int		max_map(void);
+void	store_sprites(void);
+int		init_mlx_ptr(void);
 
 #endif
