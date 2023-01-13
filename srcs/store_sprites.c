@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 07:09:32 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/13 09:18:01 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/13 09:34:25 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ int	**open_sprites(char *path)
 	data = _data();
 	data->img.img_ptr = mlx_xpm_file_to_image(data->mlx_ptr, path,
 			&x, &y);
-	if (x != 512 || y != 512)
-		print_error("Error\nWrong sprite size\n");
 	if (!data->img.img_ptr)
 		print_error("Error\nFailed to open sprite\n");
+	if (x != 512 || y != 512)
+		print_error("Error\nWrong sprite size\n");
 	data->img.addr = mlx_get_data_addr(data->img.img_ptr, &data->img.bpp, \
 			&data->img.len, &data->img.endian);
 	return (parse_sprites(data->img.addr));
