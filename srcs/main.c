@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:19:13 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/13 01:28:24 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/13 04:24:39 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,6 @@ int	main(int argc, char **argv)
 //	mlx_key_hook(data->mlx_win, close_win);
 	mlx_key_hook (data->mlx_win, key_hook, data->mlx_ptr);
 	//	mlx_hook(data->mlx_win, 6, 1L << 8, julia_move, data->mlx_ptr);
-	mlx_loop_hook(data->mlx_ptr, render, data);
+//	mlx_loop_hook(data->mlx_ptr, render, data);
 	mlx_loop(data->mlx_ptr);	
 }
