@@ -5,6 +5,7 @@ SRCS	=	srcs/main.c\
 			srcs/parse_map.c\
 			srcs/parse_player.c\
 			srcs/store_elements.c\
+			srcs/store_sprites.c\
 			srcs/hooks.c\
 			srcs/rendering.c\
 			srcs/utils.c\

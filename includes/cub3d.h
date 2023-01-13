@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/13 04:56:17 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/13 08:21:22 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ typedef struct s_data
 	char	*so;
 	char	*we;
 	char	*ea;
+	int		**no_sprite;
+	int		**so_sprite;
+	int		**we_sprite;
+	int		**ea_sprite;
 	int		floor;
 	int		ceiling;
 	int		nb_el;
@@ -100,5 +104,7 @@ void	check_digit(char **tab);
 void	store_map(void);
 void	check_player(void);
 int		max_map(void);
+void	store_sprites(void);
+int		init_mlx_ptr(void);
 
 #endif

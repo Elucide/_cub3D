@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:30:49 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/13 06:07:34 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/13 07:11:32 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,22 @@ int	key_hook(int keycode, void *param)
 	{
 		if (data->img.img_ptr)
 			mlx_destroy_image(data->mlx_ptr, data->img.img_ptr);
-		data->img.img_ptr = mlx_xpm_file_to_image(data->mlx_ptr, "./textures/signature.xpm", &w, &h);	
+		data->img.img_ptr = mlx_xpm_file_to_image(data->mlx_ptr, "./textures/signature.xpm", &w, &h);
 		if (!data->img.img_ptr)
 			print_error("Error\nFailed to create image\n");
 		data->img.addr = mlx_get_data_addr(data->img.img_ptr, &data->img.bpp, \
 				&data->img.len, &data->img.endian);
+		/*int i = 0;
+		while(i < data->w*4)
+		{
+			printf("%d ", (unsigned char)data->img.addr[i]);
+			i++;
+			printf("%d ", (unsigned char)data->img.addr[i]);
+			i++;
+			printf("%d\n", (unsigned char)data->img.addr[i]);
+			i++;
+			i++;
+		}*/
 		mlx_put_image_to_window(data->mlx_ptr, data->mlx_win, data->img.img_ptr, 0, 0);
 	}
 	return ((void) param, 1);

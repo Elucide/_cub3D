@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:30:48 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/12 23:04:21 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/13 08:15:14 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,4 +127,5 @@ void	parse_elements(void)
 	}
 	if (data->nb_el != 6)
 		print_error("Error\nToo few elements\n");
+	store_sprites();
 }
