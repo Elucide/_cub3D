@@ -85,6 +85,6 @@ int	main(int argc, char **argv)
 //	mlx_key_hook(data->mlx_win, close_win);
 	mlx_key_hook (data->mlx_win, key_hook, data->mlx_ptr);
 	//	mlx_hook(data->mlx_win, 6, 1L << 8, julia_move, data->mlx_ptr);
-	mlx_loop_hook(data->mlx_ptr, render, data);
+//	mlx_loop_hook(data->mlx_ptr, render, data);
 	mlx_loop(data->mlx_ptr);	
 }

@@ -68,7 +68,4 @@ fclean:	clean
 
 re: fclean all
 
-test_leaks:
-	valgrind $(NAME)
-
-.PHONY: bonus all clean fclean re test_leaks
+.PHONY: bonus all clean fclean re
