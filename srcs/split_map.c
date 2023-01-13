@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:55:06 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/12 18:28:58 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/12 22:56:15 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,7 @@ char	**split_map(char *s, char c)
 		if (*s && ft_is_sep((char *)s, c))
 			s++;
 		if (*s && ft_is_sep((char *)s, c))
-		{
-			printf("Error\nEmpty line in map\n");
-			free_garbage();
-		}
+			print_error("Error\nEmpty line in map\n");
 		j = ft_letter_count((char *)s, c);
 		matrix[i] = word_cpy((char *)s, j);
 		s += j;
