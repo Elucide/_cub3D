@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:30:49 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/13 01:26:54 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/13 05:01:24 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ int	key_hook(int keycode, void *param)
 	t_data	*data;
 
 	data = _data();
-	float oldDirX = data->dir_x;
-	float oldPlaneX = data->plane_x;
+	float	oldDirX = data->dir_x;
+	float	oldPlaneX = data->plane_x;
+	int		v_orth_x;
+	int		v_orth_y;
 
-//	dprintf(2, "keycode is %d\n", keycode);
+	dprintf(2, "keycode is %d\n", keycode);
 	if (keycode == 65307)
 		close_win(0);
 	if (keycode == 119)
@@ -41,11 +43,20 @@ int	key_hook(int keycode, void *param)
 	}
 	if (keycode == 97)
 	{
-		_data()->player_pos_x -= _data()->speed;
+		v_orth_x = -data->dir_y;
+		v_orth_y = data->dir_x;
+		if (data->map[(int)(data->player_pos_x + v_orth_x * data->speed)][(int)(data->player_pos_y)] == '0')
+			data->player_pos_x += v_orth_x * data->speed;
+		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y + v_orth_y * data->speed)] == '0')
+			data->player_pos_y += v_orth_y * data->speed;
 		render();
 	}
 	if (keycode == 100)
 	{
+		if (data->map[(int)(data->player_pos_x - data->dir_x * data->speed)][(int)(data->player_pos_y)] == '0')
+			data->player_pos_x -= data->dir_x * data->speed;
+		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y - data->dir_y * data->speed)] == '0')
+			data->player_pos_y -= data->dir_y * data->speed;
 		_data()->player_pos_x += _data()->speed;
 		render();
 	}

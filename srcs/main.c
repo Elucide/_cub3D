@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:19:13 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/13 01:28:24 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/13 04:13:13 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,10 @@ int	close_win(int param)
 	data = _data();
 	//	if (data->img.img_ptr)
 	//		mlx_destroy_image(data->mlx_ptr, data->img.img_ptr);
-	if (data->mlx_win)
-		mlx_destroy_window(data->mlx_ptr, data->mlx_win);
-	if (data->mlx_ptr)
-		mlx_destroy_display(data->mlx_ptr);
-	if (data->mlx_ptr)
-		free(data->mlx_ptr);
+	mlx_destroy_window(data->mlx_ptr, data->mlx_win);
+	mlx_destroy_display(data->mlx_ptr);
+	free(data->mlx_ptr);
+	free_garbage();
 	exit(param);
 	return (EXIT_SUCCESS);
 }
