@@ -20,7 +20,7 @@ INC		=	includes/cub3d.h
 
 CC		=	gcc
 
-CFLAGS	=	-Wall -Wextra -Werror -g3 -I includes/ 
+CFLAGS	=	-Wall -Wextra -Werror -I includes/ 
 
 MLX		=	mlx_linux
 
@@ -39,7 +39,6 @@ $(NAME): $(MLX) $(OBJS) $(INC)
 		 @$(MAKE) -C libft
 		 @$(MAKE) -C mlx_linux
 		 @echo "cub3d : libft compiled"
-#		 $(CC) -g $(CFLAGS) -o $(NAME) $(OBJS) $(INC) libft/libft.a -Lmlx -I/usr/include -Imlx_linux -lXext -lX11 -lm -lz
 		 $(CC) -g $(CFLAGS) -o $(NAME) $(OBJS) $(INC) libft/libft.a -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 		 @echo "cub3d : compiled"
 

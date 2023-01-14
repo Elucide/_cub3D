@@ -6,17 +6,12 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 18:29:15 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/14 04:35:21 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/14 04:59:53 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-/*
-int	float_on_line(float f)
-{
-	return (fabs(roundf(f) - f) < 1e-4);
-}
-*/
+
 int	which_side(void)
 {
 	t_data	*data;

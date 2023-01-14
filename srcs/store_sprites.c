@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 07:09:32 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/13 23:02:13 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/14 05:00:01 by rbenayou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,16 +79,3 @@ void	store_sprites(void)
 	data->ea_sprite = open_sprites(data->ea);
 	data->img.img_ptr = NULL;
 }
-	/*int i = 0;
-	int j = 0;
-	while(i < 512)
-	{
-		j = 0;
-		while(j < 512)
-		{
-			img_pixel_put(j, i, (unsigned int)data->no_sprite[i][j]);
-			j++;
-		}
-		i++;
-	}
-	mlx_push_img();*/
