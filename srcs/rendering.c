@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:01:31 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/14 02:20:44 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/14 02:40:07 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ void	init_variables(int x)
 	data->map_x = (int)data->player_pos_x;
 	data->map_y = (int)data->player_pos_y;
 	if (!data->ray_dir_x)
-		data->deltaDistX = 1e30;
+		data->d_dist_x = 1e30;
 	else
-		data->deltaDistX = fabs(1 / data->ray_dir_x);
+		data->d_dist_x = fabs(1 / data->ray_dir_x);
 	if (!data->ray_dir_y)
-		data->deltaDistY = 1e30;
+		data->d_dist_y = 1e30;
 	else
-		data->deltaDistY = fabs(1 / data->ray_dir_y);
+		data->d_dist_y = fabs(1 / data->ray_dir_y);
 	data->hit = 0;
 }
 
@@ -41,24 +41,24 @@ void	get_distances(void)
 	if (data->ray_dir_x < 0)
 	{
 		data->step_x = -1;
-		data->sideDistX = (data->player_pos_x - data->map_x) * data->deltaDistX;
+		data->s_dist_x = (data->player_pos_x - data->map_x) * data->d_dist_x;
 	}
 	else
 	{
 		data->step_x = 1;
-		data->sideDistX = (data->map_x + 1.0
-				- data->player_pos_x) * data->deltaDistX;
+		data->s_dist_x = (data->map_x + 1.0
+				- data->player_pos_x) * data->d_dist_x;
 	}
 	if (data->ray_dir_y < 0)
 	{
 		data->step_y = -1;
-		data->sideDistY = (data->player_pos_y - data->map_y) * data->deltaDistY;
+		data->s_dist_y = (data->player_pos_y - data->map_y) * data->d_dist_y;
 	}
 	else
 	{
 		data->step_y = 1;
-		data->sideDistY
-			= (data->map_y + 1.0 - data->player_pos_y) * data->deltaDistY;
+		data->s_dist_y
+			= (data->map_y + 1.0 - data->player_pos_y) * data->d_dist_y;
 	}
 }
 
@@ -69,15 +69,15 @@ void	casting_ray(void)
 	data = _data();
 	while (!data->hit)
 	{
-		if (data->sideDistX < data->sideDistY)
+		if (data->s_dist_x < data->s_dist_y)
 		{
-			data->sideDistX += data->deltaDistX;
+			data->s_dist_x += data->d_dist_x;
 			data->map_x += data->step_x;
 			data->side = 0;
 		}
 		else
 		{
-			data->sideDistY += data->deltaDistY;
+			data->s_dist_y += data->d_dist_y;
 			data->map_y += data->step_y;
 			data->side = 1;
 		}
@@ -101,10 +101,10 @@ int	raycasting(void)
 		get_distances();
 		casting_ray();
 		if (data->side == 0)
-			data->perpWallDist = (data->sideDistX - data->deltaDistX);
+			data->perp_dist = (data->s_dist_x - data->d_dist_x);
 		else
-			data->perpWallDist = (data->sideDistY - data->deltaDistY);
-		line_height = (int)((data->h / 1.5) / data->perpWallDist);
+			data->perp_dist = (data->s_dist_y - data->d_dist_y);
+		line_height = (int)((data->h / 1.5) / data->perp_dist);
 		color = rgb_convert(45, 200, 122);
 		if (data->side == 1)
 			color /= 2;

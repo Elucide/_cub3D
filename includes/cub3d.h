@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/14 02:22:08 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/14 02:41:31 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,20 +54,18 @@ typedef struct s_data
 	float	ray_dir_x;
 	float	ray_dir_y;
 	float	speed;
-	float	perpWallDist;
+	float	perp_dist;
 	float	camera_x;
-//	float	camera_y;
 	float	plane_x;
 	float	plane_y;
 	float	dir_x;
 	float	dir_y;
-	float	sideDistX;
-	float	sideDistY;
-	float	deltaDistX;
-	float	deltaDistY;
+	float	s_dist_x;
+	float	s_dist_y;
+	float	d_dist_x;
+	float	d_dist_y;
 	float	rs;
 	int		map_x;
-	int		WallX;
 	int		map_y;
 	int		step_x;
 	int		step_y;
@@ -88,7 +86,6 @@ void	mlx_img_addr(void);
 void	ft_free(void);
 int		rgb_convert(int r, int g, int b);
 int		render(void);
-//void	print_line(int len, int pos, int color);
 void	print_line(int len, int pos);
 int		set_floor_ceiling(void);
 char	*check_element(char *s);

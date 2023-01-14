@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 18:29:15 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/14 02:24:57 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/14 02:38:30 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int	get_color(double y)
 
 	data = _data();
 	if (!data->side)
-		wall_x = data->player_pos_y + data->perpWallDist * data->ray_dir_y;
+		wall_x = data->player_pos_y + data->perp_dist * data->ray_dir_y;
 	else
-		wall_x = data->player_pos_x + data->perpWallDist * data->ray_dir_x;
+		wall_x = data->player_pos_x + data->perp_dist * data->ray_dir_x;
 	wall_x -= floor(wall_x);
 	tex_x = (int)(wall_x * 512);
 	if ((!data->side && data->ray_dir_x > 0) || \
