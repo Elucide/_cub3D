@@ -6,31 +6,27 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 18:29:15 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/14 02:38:30 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/14 04:35:21 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
+/*
+int	float_on_line(float f)
+{
+	return (fabs(roundf(f) - f) < 1e-4);
+}
+*/
 int	which_side(void)
 {
 	t_data	*data;
 
 	data = _data();
-	if ((data->side && data->player_pos_x > data->map_x && \
-		data->player_pos_y > data->map_y) || \
-		(!data->side && data->player_pos_x < data->map_x && data->player_pos_y \
-		> data->map_y))
+	if (data->side && data->ray_dir_y > 0)
 		return (0);
-	else if ((data->side && data->player_pos_x < data->map_x && \
-		data->player_pos_y < data->map_y) || \
-		(!data->side && data->player_pos_x > data->map_x && data->player_pos_y \
-		< data->map_y))
+	else if (data->side && data->ray_dir_y < 0)
 		return (1);
-	else if ((data->side && data->player_pos_x > data->map_x && \
-		data->player_pos_y < data->map_y) || \
-		(!data->side && data->player_pos_x > data->map_x && data->player_pos_y \
-		> data->map_y))
+	else if (!data->side && data->ray_dir_x > 0)
 		return (2);
 	return (3);
 }
@@ -38,12 +34,12 @@ int	which_side(void)
 int	**get_sprite(int nb)
 {
 	if (!nb)
-		return (_data()->no_sprite);
+		return (_data()->ea_sprite);
 	if (nb == 1)
-		return (_data()->so_sprite);
-	if (nb == 2)
 		return (_data()->we_sprite);
-	return (_data()->ea_sprite);
+	if (nb == 2)
+		return (_data()->so_sprite);
+	return (_data()->no_sprite);
 }
 
 int	get_color(double y)
@@ -62,7 +58,6 @@ int	get_color(double y)
 	if ((!data->side && data->ray_dir_x > 0) || \
 			(data->side && data->ray_dir_y < 0))
 		tex_x = 512 - tex_x - 1;
-	tex_x = 511 - tex_x;
 	return (get_sprite(which_side())[(int)y][tex_x]);
 }
 

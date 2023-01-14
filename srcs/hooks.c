@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:30:49 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/14 01:56:29 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/14 04:24:06 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	right_hook(int keycode)
 	float	v_orth_y;
 
 	d = _data();
-	if (keycode == 100)
+	if (keycode == 97)
 	{
 		v_orth_x = -d->dir_y;
 		v_orth_y = d->dir_x;
@@ -67,7 +67,7 @@ void	left_hook(int keycode)
 	float	v_orth_y;
 
 	d = _data();
-	if (keycode == 97)
+	if (keycode == 100)
 	{
 		v_orth_x = d->dir_y;
 		v_orth_y = -d->dir_x;
@@ -90,7 +90,7 @@ void	pan_hook(int keycode)
 	d = _data();
 	old_dir_x = d->dir_x;
 	old_plane_x = d->plane_x;
-	if (keycode == 65361)
+	if (keycode == 65363)
 	{
 		d->dir_x = d->dir_x * cos(-d->rs) - d->dir_y * sin(-d->rs);
 		d->dir_y = old_dir_x * sin(-d->rs) + d->dir_y * cos(-d->rs);
@@ -98,7 +98,7 @@ void	pan_hook(int keycode)
 		d->plane_y = old_plane_x * sin(-d->rs) + d->plane_y * cos(-d->rs);
 		render();
 	}
-	if (keycode == 65363)
+	if (keycode == 65361)
 	{
 		d->dir_x = d->dir_x * cos(d->rs) - d->dir_y * sin(d->rs);
 		d->dir_y = old_dir_x * sin(d->rs) + d->dir_y * cos(d->rs);

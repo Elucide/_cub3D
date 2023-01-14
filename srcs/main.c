@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:19:13 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/14 02:02:11 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/14 04:20:35 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	data->speed = 0.50;
-	data->plane_x = -data->dir_y;
-	data->plane_y = data->dir_x;
+	data->plane_x = data->dir_y;
+	data->plane_y = -data->dir_x;
 	data->rs = 0.25;
 	render();
 	mlx_hook(data->mlx_win, 17, 0, close_win, 0);

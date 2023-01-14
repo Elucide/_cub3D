@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 23:34:26 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/12 23:35:21 by rbenayou         ###   ########.fr       */
+/*   Updated: 2023/01/14 04:29:42 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,20 @@ void	init_player(char pos, int x, int y)
 		data->dir_x = 1;
 		data->dir_y = 0;
 	}
-	if (pos == 'W')
+	if (pos == 'N')
 	{
 		data->dir_x = -1;
 		data->dir_y = 0;
 	}
-	if (pos == 'N')
+	if (pos == 'W')
 	{
 		data->dir_x = 0;
 		data->dir_y = -1;
 	}
 	if (pos == 'S')
 	{
-		data->dir_x = 0;
-		data->dir_y = 1;
+		data->dir_x = 1;
+		data->dir_y = 0;
 	}
 }
 
