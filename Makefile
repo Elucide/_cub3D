@@ -10,6 +10,7 @@ SRCS	=	srcs/main.c\
 			srcs/rendering.c\
 			srcs/utils.c\
 			srcs/split_map.c\
+			srcs/rendering_utils.c\
 			srcs/raycasting_utils.c\
 			includes/garbage.c\
 			includes/get_next_line.c\

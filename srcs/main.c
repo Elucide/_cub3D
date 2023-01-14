@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:19:13 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/13 12:05:37 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/14 02:02:11 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,13 @@ t_data	*_data(void)
 
 int	init_mlx_ptr(void)
 {
+	t_data	*data;
+
+	data = _data();
 	_data()->mlx_ptr = mlx_init();
 	if (!_data()->mlx_ptr)
 		return (0);
-	_data()->mlx_win = mlx_new_window(_data()->mlx_ptr, \
-		_data()->w, _data()->h, "cub3D");
+	data->mlx_win = mlx_new_window(data->mlx_ptr, data->w, data->h, "cub3D");
 	if (!_data()->mlx_win)
 		return (free(_data()->mlx_ptr), 0);
 	return (1);
@@ -58,7 +60,7 @@ int	close_win(int param)
 
 int	main(int argc, char **argv)
 {
-	t_data *data;
+	t_data	*data;
 
 	data = _data();
 	if (argc == 2)
@@ -72,9 +74,9 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	data->speed = 0.50;
-	data->plane_x = - data->dir_y;
+	data->plane_x = -data->dir_y;
 	data->plane_y = data->dir_x;
-	data->rotSpeed = 0.25;
+	data->rs = 0.25;
 	render();
 	mlx_hook(data->mlx_win, 17, 0, close_win, 0);
 	mlx_key_hook (data->mlx_win, key_hook, data->mlx_ptr);

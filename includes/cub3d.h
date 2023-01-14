@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:39:36 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/13 09:23:23 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/14 02:22:08 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ typedef struct s_data
 	float	sideDistY;
 	float	deltaDistX;
 	float	deltaDistY;
-	float	rotSpeed;
+	float	rs;
 	int		map_x;
 	int		WallX;
 	int		map_y;
@@ -90,6 +90,7 @@ int		rgb_convert(int r, int g, int b);
 int		render(void);
 //void	print_line(int len, int pos, int color);
 void	print_line(int len, int pos);
+int		set_floor_ceiling(void);
 char	*check_element(char *s);
 void	parse_elements(void);
 int		is_space(char c);

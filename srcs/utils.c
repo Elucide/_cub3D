@@ -6,7 +6,7 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:14:28 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/12 20:17:00 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/14 02:25:23 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	rgb_convert(int r, int g, int b)
 {
-	return (r << 16) | (g << 8) | b;
+	return ((r << 16) | (g << 8) | b);
 }
 
 void	img_pixel_put(int x, int y, int color)

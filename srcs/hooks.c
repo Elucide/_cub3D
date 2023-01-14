@@ -6,100 +6,130 @@
 /*   By: yschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 23:30:49 by yschecro          #+#    #+#             */
-/*   Updated: 2023/01/14 01:23:02 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/14 01:56:29 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	key_hook(int keycode, void *param)
+void	up_down_hook(int keycode)
 {
-	t_data	*data;
+	t_data	*d;
 
-	data = _data();
-	float	oldDirX = data->dir_x;
-	float	oldPlaneX = data->plane_x;
-	float	v_orth_x;
-	float	v_orth_y;
-
-//	dprintf(2, "keycode is %d\n", keycode);
-	if (keycode == 65307)
-		close_win(0);
+	d = _data();
 	if (keycode == 119)
 	{
-		if (data->map[(int)(data->player_pos_x + data->dir_x * (data->speed * 2))][(int)(data->player_pos_y)] == '0')
-			data->player_pos_x += data->dir_x * data->speed;
-		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y + data->dir_y * (data->speed * 2))] == '0')
-			data->player_pos_y += data->dir_y * data->speed;
+		if (d->map[(int)(d->player_pos_x + d->dir_x * \
+					(d->speed * 2))][(int)(d->player_pos_y)] == '0')
+			d->player_pos_x += d->dir_x * d->speed;
+		if (d->map[(int)(d->player_pos_x)][(int)(d->player_pos_y \
+					+ d->dir_y * (d->speed * 2))] == '0')
+			d->player_pos_y += d->dir_y * d->speed;
 		render();
 	}
 	if (keycode == 115)
 	{
-		if (data->map[(int)(data->player_pos_x - data->dir_x * (data->speed * 2))][(int)(data->player_pos_y)] == '0')
-			data->player_pos_x -= data->dir_x * data->speed;
-		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y - data->dir_y * (data->speed * 2))] == '0')
-			data->player_pos_y -= data->dir_y * data->speed;
+		if (d->map[(int)(d->player_pos_x - d->dir_x * (d->speed * \
+						2))][(int)(d->player_pos_y)] == '0')
+			d->player_pos_x -= d->dir_x * d->speed;
+		if (d->map[(int)(d->player_pos_x)][(int)(d->player_pos_y - \
+					d->dir_y * (d->speed * 2))] == '0')
+			d->player_pos_y -= d->dir_y * d->speed;
 		render();
 	}
+}
+
+void	right_hook(int keycode)
+{
+	t_data	*d;
+	float	v_orth_x;
+	float	v_orth_y;
+
+	d = _data();
 	if (keycode == 100)
 	{
-		v_orth_x = -data->dir_y;
-		v_orth_y = data->dir_x;
-		if (data->map[(int)(data->player_pos_x + v_orth_x * (data->speed * 2))][(int)(data->player_pos_y)] == '0')
-			data->player_pos_x += v_orth_x * data->speed;
-		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y + v_orth_y * (data->speed * 2))] == '0')
-			data->player_pos_y += v_orth_y * data->speed;
+		v_orth_x = -d->dir_y;
+		v_orth_y = d->dir_x;
+		if (d->map[(int)(d->player_pos_x + v_orth_x * \
+					(d->speed * 2))][(int)(d->player_pos_y)] == '0')
+			d->player_pos_x += v_orth_x * d->speed;
+		if (d->map[(int)(d->player_pos_x)][(int)(d->player_pos_y + v_orth_y \
+					* (d->speed * 2))] == '0')
+			d->player_pos_y += v_orth_y * d->speed;
 		render();
 	}
+}
+
+void	left_hook(int keycode)
+{
+	t_data	*d;
+	float	v_orth_x;
+	float	v_orth_y;
+
+	d = _data();
 	if (keycode == 97)
 	{
-		v_orth_x = data->dir_y;
-		v_orth_y = -data->dir_x;
-		if (data->map[(int)(data->player_pos_x + v_orth_x * (data->speed * 2))][(int)(data->player_pos_y)] == '0')
-			data->player_pos_x += v_orth_x * data->speed;
-		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y + v_orth_y * (data->speed * 2))] == '0')
-			data->player_pos_y += v_orth_y * data->speed;
+		v_orth_x = d->dir_y;
+		v_orth_y = -d->dir_x;
+		if (d->map[(int)(d->player_pos_x + v_orth_x * \
+					(d->speed * 2))][(int)(d->player_pos_y)] == '0')
+			d->player_pos_x += v_orth_x * d->speed;
+		if (d->map[(int)(d->player_pos_x)][(int)(d->player_pos_y + \
+					v_orth_y * (d->speed * 2))] == '0')
+			d->player_pos_y += v_orth_y * d->speed;
 		render();
 	}
+}
+
+void	pan_hook(int keycode)
+{
+	t_data	*d;
+	float	old_dir_x;
+	float	old_plane_x;
+
+	d = _data();
+	old_dir_x = d->dir_x;
+	old_plane_x = d->plane_x;
 	if (keycode == 65361)
 	{
-		data->dir_x = data->dir_x * cos(-data->rotSpeed) - data->dir_y * sin(-data->rotSpeed);
-		data->dir_y = oldDirX * sin(-data->rotSpeed) + data->dir_y * cos(-data->rotSpeed);
-		data->plane_x = data->plane_x * cos(-data->rotSpeed) - data->plane_y * sin(-data->rotSpeed);
-		data->plane_y = oldPlaneX * sin(-data->rotSpeed) + data->plane_y * cos(-data->rotSpeed);
+		d->dir_x = d->dir_x * cos(-d->rs) - d->dir_y * sin(-d->rs);
+		d->dir_y = old_dir_x * sin(-d->rs) + d->dir_y * cos(-d->rs);
+		d->plane_x = d->plane_x * cos(-d->rs) - d->plane_y * sin(-d->rs);
+		d->plane_y = old_plane_x * sin(-d->rs) + d->plane_y * cos(-d->rs);
 		render();
 	}
 	if (keycode == 65363)
 	{
-		data->dir_x = data->dir_x * cos(data->rotSpeed) - data->dir_y * sin(data->rotSpeed);
-		data->dir_y = oldDirX * sin(data->rotSpeed) + data->dir_y * cos(data->rotSpeed);
-		data->plane_x = data->plane_x * cos(data->rotSpeed) - data->plane_y * sin(data->rotSpeed);
-		data->plane_y = oldPlaneX * sin(data->rotSpeed) + data->plane_y * cos(data->rotSpeed);
+		d->dir_x = d->dir_x * cos(d->rs) - d->dir_y * sin(d->rs);
+		d->dir_y = old_dir_x * sin(d->rs) + d->dir_y * cos(d->rs);
+		d->plane_x = d->plane_x * cos(d->rs) - d->plane_y * sin(d->rs);
+		d->plane_y = old_plane_x * sin(d->rs) + d->plane_y * cos(d->rs);
 		render();
 	}
-	int w = data->w;
-	int h = data->h;
+}
+
+int	key_hook(int keycode, void *param)
+{
+	t_data	*d;
+
+	d = _data();
+	up_down_hook(keycode);
+	right_hook(keycode);
+	left_hook(keycode);
+	pan_hook(keycode);
+	if (keycode == 65307)
+		close_win(0);
 	if (keycode == 99)
 	{
-		if (data->img.img_ptr)
-			mlx_destroy_image(data->mlx_ptr, data->img.img_ptr);
-		data->img.img_ptr = mlx_xpm_file_to_image(data->mlx_ptr, "./textures/signature.xpm", &w, &h);
-		if (!data->img.img_ptr)
+		if (d->img.img_ptr)
+			mlx_destroy_image(d->mlx_ptr, d->img.img_ptr);
+		d->img.img_ptr = mlx_xpm_file_to_image(d->mlx_ptr, \
+				"./textures/signature.xpm", &d->w, &d->h);
+		if (!d->img.img_ptr)
 			print_error("Error\nFailed to create image\n");
-		data->img.addr = mlx_get_data_addr(data->img.img_ptr, &data->img.bpp, \
-				&data->img.len, &data->img.endian);
-		/*int i = 0;
-		while(i < data->w*4)
-		{
-			printf("%d ", (unsigned char)data->img.addr[i]);
-			i++;
-			printf("%d ", (unsigned char)data->img.addr[i]);
-			i++;
-			printf("%d\n", (unsigned char)data->img.addr[i]);
-			i++;
-			i++;
-		}*/
-		mlx_put_image_to_window(data->mlx_ptr, data->mlx_win, data->img.img_ptr, 0, 0);
+		d->img.addr = mlx_get_data_addr(d->img.img_ptr, &d->img.bpp, \
+				&d->img.len, &d->img.endian);
+		mlx_put_image_to_window(d->mlx_ptr, d->mlx_win, d->img.img_ptr, 0, 0);
 	}
 	return ((void) param, 1);
 }
