@@ -6,7 +6,7 @@
 /*   By: rbenayou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:19:13 by rbenayou          #+#    #+#             */
-/*   Updated: 2023/01/14 04:20:35 by yschecro         ###   ########.fr       */
+/*   Updated: 2023/01/16 19:31:53 by yschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,10 @@ int	main(int argc, char **argv)
 		printf("Error\nWrong number of arguments\n");
 		return (1);
 	}
-	data->speed = 0.50;
+	data->speed = 0.75;
 	data->plane_x = data->dir_y;
 	data->plane_y = -data->dir_x;
-	data->rs = 0.25;
+	data->rs = 0.400;
 	render();
 	mlx_hook(data->mlx_win, 17, 0, close_win, 0);
 	mlx_key_hook (data->mlx_win, key_hook, data->mlx_ptr);
